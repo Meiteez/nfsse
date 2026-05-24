@@ -336,6 +336,69 @@
     color: var(--gold-dim);
     margin-top: 1.2rem;
   }
+  .about-mission { list-style: none; margin-bottom: 1.5rem; }
+  .about-mission li {
+    font-size: 1.05rem;
+    color: var(--sand-dark);
+    padding: 0.6rem 0;
+    border-bottom: 1px solid rgba(201,168,76,0.08);
+    padding-left: 1.25rem;
+    position: relative;
+    line-height: 1.7;
+  }
+  .about-mission li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--gold-dim);
+  }
+  .documents-section { background: var(--dark-mid); }
+  .documents-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1px;
+    background: rgba(201,168,76,0.1);
+    border: 1px solid rgba(201,168,76,0.1);
+    margin-top: 3rem;
+  }
+  .document-card {
+    background: var(--dark);
+    padding: 2.5rem;
+    grid-column: span 2;
+    transition: background 0.3s;
+  }
+  .document-card:nth-child(4) { grid-column: 2 / span 2; }
+  .document-card:nth-child(5) { grid-column: 4 / span 2; }
+  .document-card:hover { background: var(--dark-surface); }
+  .document-icon {
+    font-size: 2rem;
+    margin-bottom: 1.2rem;
+    display: block;
+    color: var(--gold);
+    opacity: 0.8;
+  }
+  .document-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    color: var(--gold);
+    letter-spacing: 0.08em;
+    margin-bottom: 0.75rem;
+  }
+  .document-text { font-size: 0.95rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 1.2rem; }
+  .btn-download {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 0.75rem 1.5rem;
+    background: transparent;
+    color: var(--sand);
+    text-decoration: none;
+    border: 1px solid rgba(201,168,76,0.4);
+    transition: all 0.3s;
+    display: inline-block;
+  }
+  .btn-download:hover { border-color: var(--gold); color: var(--gold); }
   .grants-section { background: var(--dark); }
   .grants-grid {
     display: grid;
@@ -612,7 +675,11 @@
     nav { padding: 0 1.5rem; }
     .nav-links { display: none; }
     .about-grid, .grants-grid, .contact-grid { grid-template-columns: 1fr; }
-    .activities-grid { grid-template-columns: 1fr; }
+    .activities-grid,
+    .documents-grid { grid-template-columns: 1fr; }
+    .document-card,
+    .document-card:nth-child(4),
+    .document-card:nth-child(5) { grid-column: auto; }
     .footer-grid { grid-template-columns: 1fr 1fr; }
     .donate-options { grid-template-columns: 1fr; }
     .stats-row { flex-wrap: wrap; }
@@ -717,8 +784,10 @@
     .stat-label { font-size: 0.8125rem; }
 
     /* Activities */
-    .activity-card { padding: 1.5rem; }
+    .activity-card,
+    .document-card { padding: 1.5rem; }
     .activity-tag { font-size: 0.8125rem; padding: 0.35rem 0.75rem; }
+    .btn-download { min-height: 44px; display: inline-flex; align-items: center; font-size: 0.8125rem; }
 
     /* Grants */
     .grants-grid {
@@ -820,9 +889,8 @@
   <ul class="nav-links">
     <li><a href="#o-fondu">O fondu</a></li>
     <li><a href="#aktivity">Aktivity</a></li>
-    <li><a href="#stipendia">Stipendia</a></li>
-    <li><a href="#projekty">Projekty</a></li>
-    <li><a href="#jak-prispet">Přispět</a></li>
+    <li><a href="#dokumenty">Dokumenty</a></li>
+    <li><a href="#jak-prispet">Jak přispět</a></li>
     <li><a href="#kontakt">Kontakt</a></li>
   </ul>
   <a href="#jak-prispet" class="nav-donate">Podpořte nás</a>
@@ -836,9 +904,8 @@
     <ul class="nav-overlay-links">
       <li><a href="#o-fondu">O fondu</a></li>
       <li><a href="#aktivity">Aktivity</a></li>
-      <li><a href="#stipendia">Stipendia</a></li>
-      <li><a href="#projekty">Projekty</a></li>
-      <li><a href="#jak-prispet">Přispět</a></li>
+      <li><a href="#dokumenty">Dokumenty</a></li>
+      <li><a href="#jak-prispet">Jak přispět</a></li>
       <li><a href="#kontakt">Kontakt</a></li>
     </ul>
     <a href="#jak-prispet" class="nav-donate nav-overlay-donate">Podpořte nás</a>
@@ -854,7 +921,7 @@
   <h1 class="hero-title">
     Nadační fond pro studium<br><span class="gold">starověkého Egypta</span>
   </h1>
-  <p class="hero-subtitle">Zachováváme dědictví. Podporujeme poznání.</p>
+  <p class="hero-subtitle">Veřejně prospěšný a dobročinný nadační fond</p>
   <div class="hero-divider"></div>
   <p class="hero-desc">
     Propojujeme vášeň pro egyptologii s akademickou excelencí.
@@ -863,69 +930,29 @@
   </p>
   <div class="hero-ctas">
     <a href="#o-fondu" class="btn-primary">Poznat fond</a>
-    <a href="#stipendia" class="btn-secondary">Stipendijní program</a>
+    <a href="#aktivity" class="btn-secondary">Stipendijní program</a>
   </div>
 </section>
 
 <section class="about-section" id="o-fondu">
   <div class="section-inner">
-    <div class="about-grid">
-      <div>
-        <p class="section-label">O fondu</p>
-        <h2 class="section-title">Proč Egypt?<br>Proč teď?</h2>
-        <div class="gold-rule"></div>
-        <div class="about-text">
-          <p>Nadační fond pro studium starověkého Egypta byl založen s jediným cílem — zajistit, aby obor egyptologie ve střední Evropě neklesal do zapomnění, ale naopak prosperoval.</p>
-          <p>Egypt není jen mumie a pyramidy. Je to civilizace, která formovala filosofii, architekturu, medicínu a náboženství na tisíce let dopředu. Studovat ji znamená rozumět kořenům samotné Evropy.</p>
-          <p>Fond propojuje české akademické prostředí s mezinárodními výzkumnými institucemi, poskytuje stipendia nadaným studentům a spolufinancuje terénní výzkumy.</p>
-        </div>
-      </div>
-      <div class="about-values">
-        <div class="value-item">
-          <div class="value-num">01</div>
-          <div class="value-title">Věda</div>
-          <div class="value-text">Podporujeme rigorózní výzkum, nikoli populární mystiku kolem Egypta.</div>
-        </div>
-        <div class="value-item">
-          <div class="value-num">02</div>
-          <div class="value-title">Vzdělání</div>
-          <div class="value-text">Stipendia pro studenty bakalářského, magisterského i doktorského studia.</div>
-        </div>
-        <div class="value-item">
-          <div class="value-num">03</div>
-          <div class="value-title">Terén</div>
-          <div class="value-text">Spolufinancování výjezdů na archeologické lokality v Egyptě a Súdánu.</div>
-        </div>
-        <div class="value-item">
-          <div class="value-num">04</div>
-          <div class="value-title">Popularizace</div>
-          <div class="value-text">Přednášky, výstavy a publikace pro širší českou veřejnost.</div>
-        </div>
-      </div>
+    <p class="section-label">O fondu</p>
+    <h2 class="section-title">Účel, pro který se nadační fond zřídil</h2>
+    <div class="gold-rule"></div>
+    <div class="about-text">
+      <ul class="about-mission">
+        <li>podporovat především archeologické výzkumy na lokalitě Abúsír a s tím související aktivity</li>
+        <li>podporovat studium starověkého Egypta obecně, dokumentaci lokalit na území Egypta a prohlubovat poznání v těchto směrech</li>
+        <li>rozšiřovat odborný knižní fond, pořádat semináře, konference, přednášky a výstavy</li>
+        <li>podporovat multidisciplinární bádání a spolupráci se zástupci společenskovědních, technických i přírodovědných oborů</li>
+        <li>podporovat odbornou i popularizační publikační činnost v oboru egyptologie</li>
+        <li>podporovat srovnávací studium civilizací</li>
+        <li>udělovat stipendia pro studium egyptologie</li>
+      </ul>
+      <p>Účelem nadačního fondu je také shromažďování finančních prostředků pro podporu činnosti nadačního fondu, pořádání kulturních a společenských akcí, stejně jako ochrana a rozvoj etických hodnot v oboru egyptologie.</p>
     </div>
   </div>
 </section>
-
-<div class="stat-strip">
-  <div class="stats-row">
-    <div class="stat-item">
-      <div class="stat-num">20+</div>
-      <div class="stat-label">let činnosti</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">85</div>
-      <div class="stat-label">podpořených studentů</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">14</div>
-      <div class="stat-label">vědeckých projektů</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">7</div>
-      <div class="stat-label">partnerských institucí</div>
-    </div>
-  </div>
-</div>
 
 <section class="activities-section" id="aktivity">
   <div class="section-inner">
@@ -933,140 +960,34 @@
     <h2 class="section-title">Oblasti činnosti</h2>
     <div class="activities-grid">
       <div class="activity-card">
-        <span class="activity-icon">𓂋</span>
-        <div class="activity-title">Stipendijní program</div>
-        <p class="activity-text">Finanční podpora pro studenty egyptologie na českých a zahraničních univerzitách. Roční stipendia pokrývají školné, výjezdní náklady i výzkumné výdaje.</p>
-        <span class="activity-tag">Vzdělávání</span>
+        <span class="activity-icon">𓇳</span>
+        <div class="activity-title">Výzkum Abúsír</div>
+        <p class="activity-text">Archeologické výzkumy na lokalitě Abúsír a s tím související aktivity.</p>
       </div>
       <div class="activity-card">
         <span class="activity-icon">𓇗</span>
-        <div class="activity-title">Terénní výzkum</div>
-        <p class="activity-text">Spolufinancování účasti českých badatelů na vykopávkách a dokumentačních misích v Egyptě, Súdánu a dalších lokalitách blízkého východu.</p>
-        <span class="activity-tag">Věda</span>
+        <div class="activity-title">Studium a dokumentace</div>
+        <p class="activity-text">Studium starověkého Egypta, dokumentace lokalit na území Egypta a prohlubování poznání v těchto směrech.</p>
       </div>
       <div class="activity-card">
         <span class="activity-icon">𓏏</span>
-        <div class="activity-title">Vědecké granty</div>
-        <p class="activity-text">Grantová podpora pro výzkumné projekty zaměřené na dějiny, archeologii, jazyk a kulturu starověkého Egypta a přilehlých civilizací.</p>
-        <span class="activity-tag">Výzkum</span>
+        <div class="activity-title">Knihovna a akce</div>
+        <p class="activity-text">Odborný knižní fond, semináře, konference, přednášky a výstavy.</p>
       </div>
       <div class="activity-card">
         <span class="activity-icon">𓂀</span>
-        <div class="activity-title">Přednášky &amp; workshopy</div>
-        <p class="activity-text">Pravidelné přednáškové cykly pro odbornou i laickou veřejnost. Spolupráce s Českým egyptologickým ústavem UK a muzei.</p>
-        <span class="activity-tag">Popularizace</span>
+        <div class="activity-title">Multidisciplinární bádání</div>
+        <p class="activity-text">Spolupráce se zástupci společenskovědních, technických i přírodovědných oborů.</p>
       </div>
       <div class="activity-card">
         <span class="activity-icon">𓆣</span>
-        <div class="activity-title">Publikace</div>
-        <p class="activity-text">Podpora vydávání odborných i populárně-naučných titulů o starověkém Egyptě v češtině. Zpřístupňování poznání domácímu čtenáři.</p>
-        <span class="activity-tag">Vydavatelství</span>
+        <div class="activity-title">Publikační činnost</div>
+        <p class="activity-text">Odborná i popularizační publikační činnost v oboru egyptologie.</p>
       </div>
       <div class="activity-card">
         <span class="activity-icon">𓊽</span>
-        <div class="activity-title">Mezinárodní spolupráce</div>
-        <p class="activity-text">Síť vztahů s egyptologickými institucemi po celém světě — od Káhiry po Berlín, od Londýna po Chicago. Otevírání dveří pro české vědce.</p>
-        <span class="activity-tag">Partnerství</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="grants-section" id="stipendia">
-  <div class="section-inner">
-    <p class="section-label">Stipendijní program</p>
-    <h2 class="section-title">Podpora studia egyptologie</h2>
-    <div class="gold-rule"></div>
-    <p style="color: var(--sand-dark); max-width: 620px; margin-bottom: 1rem; font-style: italic;">
-      Fond každoročně vypisuje stipendia ve třech kategoriích. Uzávěrka přihlášek bývá vždy 31. března daného roku.
-    </p>
-    <div class="grants-grid">
-      <div class="grant-card featured">
-        <span class="grant-badge">Hlavní stipendium</span>
-        <h3 class="grant-title">Stipendium prof. Lexy</h3>
-        <div class="grant-amount">50 000 Kč <span>/ rok</span></div>
-        <p class="grant-desc">Prestižní roční stipendium pro doktorandy a pokročilé magistrandy. Určeno pro studenty, kteří absolvují výzkumný pobyt v zahraničí nebo participují na terénní misi.</p>
-        <ul class="grant-conditions">
-          <li>Studium egyptologie nebo příbuzného oboru</li>
-          <li>Jasně definovaný výzkumný projekt</li>
-          <li>Doporučení vedoucího práce</li>
-          <li>Závěrečná zpráva po ukončení</li>
-        </ul>
-      </div>
-      <div class="grant-card">
-        <h3 class="grant-title">Stipendium pro bakaláře</h3>
-        <div class="grant-amount">20 000 Kč <span>/ rok</span></div>
-        <p class="grant-desc">Podpora pro studenty bakalářského stupně, kteří projevují mimořádný zájem o egyptologii — účastí na konferencích, publikační aktivitou nebo dobrovolnictvím.</p>
-        <ul class="grant-conditions">
-          <li>Studium na české nebo slovenské VŠ</li>
-          <li>Průměrný prospěch do 1,5</li>
-          <li>Motivační esej (2 strany A4)</li>
-        </ul>
-      </div>
-      <div class="grant-card">
-        <h3 class="grant-title">Cestovní grant</h3>
-        <div class="grant-amount">15 000 Kč <span>/ účel</span></div>
-        <p class="grant-desc">Jednorázový příspěvek na pokrytí cestovních nákladů spojených s účastí na mezinárodní konferenci nebo výjezdem na zahraniční stáž.</p>
-        <ul class="grant-conditions">
-          <li>Jakýkoli stupeň studia</li>
-          <li>Potvrzení o účasti / přijetí na stáž</li>
-          <li>Vyúčtování po návratu</li>
-        </ul>
-      </div>
-      <div class="grant-card">
-        <h3 class="grant-title">Výzkumný mikrogrant</h3>
-        <div class="grant-amount">do 30 000 Kč <span>/ projekt</span></div>
-        <p class="grant-desc">Podpora konkrétních výzkumných aktivit — nákup odborné literatury, archivní rešerše, digitalizace, laboratorní analýzy nebo dokumentační technologie.</p>
-        <ul class="grant-conditions">
-          <li>Předložení projektového záměru</li>
-          <li>Rozpočet s odůvodněním položek</li>
-          <li>Průběžné a závěrečné hlášení</li>
-        </ul>
-      </div>
-    </div>
-    <div style="margin-top: 2rem; text-align: center;">
-      <a href="#kontakt" class="btn-primary">Požádat o stipendium</a>
-    </div>
-  </div>
-</section>
-
-<section class="projects-section" id="projekty">
-  <div class="section-inner">
-    <p class="section-label">Vybrané projekty</p>
-    <h2 class="section-title">Co jsme podpořili</h2>
-    <div class="gold-rule"></div>
-    <div class="projects-list">
-      <div class="project-item">
-        <div class="project-year">2024–2025</div>
-        <div>
-          <div class="project-title">Dokumentace nástěnných maleb v Thébách</div>
-          <div class="project-desc">Fotogrammetrická dokumentace hrobek v Údolí šlechticů, spolupráce s Českým egyptologickým ústavem UK Praha.</div>
-        </div>
-        <span class="project-status status-active">Probíhá</span>
-      </div>
-      <div class="project-item">
-        <div class="project-year">2023</div>
-        <div>
-          <div class="project-title">Překlad Textů rakví do češtiny</div>
-          <div class="project-desc">Komentovaný překlad vybraných pasáží Coffin Texts — první svého druhu v českém jazyce.</div>
-        </div>
-        <span class="project-status status-done">Dokončeno</span>
-      </div>
-      <div class="project-item">
-        <div class="project-year">2022–2023</div>
-        <div>
-          <div class="project-title">Výstava „Egypt: Cesta za nesmrtelností"</div>
-          <div class="project-desc">Putovní výstava ve spolupráci s Národním muzeem v Praze a Muzeem umění Olomouc. Navštívilo přes 40 000 lidí.</div>
-        </div>
-        <span class="project-status status-done">Dokončeno</span>
-      </div>
-      <div class="project-item">
-        <div class="project-year">2025–2026</div>
-        <div>
-          <div class="project-title">Databáze hieroglyfických nápisů ze soukromých sbírek</div>
-          <div class="project-desc">Digitalizace a odborná katalogizace egyptských artefaktů v českých privátních kolekcích a menších muzeích.</div>
-        </div>
-        <span class="project-status status-plan">Plánováno</span>
+        <div class="activity-title">Stipendia</div>
+        <p class="activity-text">Udělování stipendií pro studium egyptologie.</p>
       </div>
     </div>
   </div>
@@ -1086,8 +1007,9 @@
         <div class="donate-option-title">Bankovní převod</div>
         <div class="donate-option-info">
           Jednorázový nebo pravidelný dar na účet fondu.
-          <strong>2801234567 / 2010<br>Fio banka</strong>
-          VS = vaše IČO nebo rodné číslo
+          <strong>367175675 / 0300<br>ČSOB, a.s.</strong>
+          IBAN: CZ09 0300 0000 0003 6717 5675<br>
+          BIC/SWIFT: CEKOCZPP
         </div>
       </div>
       <div class="donate-option">
@@ -1130,20 +1052,36 @@
             <span class="ci-value">NFSSE</span>
           </li>
           <li>
-            <span class="ci-label">Sídlo</span>
-            <span class="ci-value">Praha, Česká republika</span>
+            <span class="ci-label">Adresa</span>
+            <span class="ci-value">Vítězslava Hálka 1532/2, 434 01 Most</span>
           </li>
           <li>
             <span class="ci-label">E-mail</span>
-            <span class="ci-value">info@nfsse.cz</span>
+            <span class="ci-value">office@nfsse.cz</span>
           </li>
           <li>
             <span class="ci-label">Web</span>
             <span class="ci-value">www.nfsse.cz</span>
           </li>
           <li>
-            <span class="ci-label">IČO</span>
-            <span class="ci-value">Zapsán v nadačním rejstříku MV ČR</span>
+            <span class="ci-label">Tel</span>
+            <span class="ci-value">+420 602 301 257</span>
+          </li>
+          <li>
+            <span class="ci-label">IČ</span>
+            <span class="ci-value">190 71 035</span>
+          </li>
+          <li>
+            <span class="ci-label">Dat. schr.</span>
+            <span class="ci-value">k229a9r</span>
+          </li>
+          <li>
+            <span class="ci-label">Předseda</span>
+            <span class="ci-value">Ing. Vladimír Brůna, Ph.D.</span>
+          </li>
+          <li>
+            <span class="ci-label">Garant</span>
+            <span class="ci-value">prof. Mgr. Miroslav Bárta, Dr.</span>
           </li>
         </ul>
       </div>
@@ -1169,6 +1107,45 @@
   </div>
 </section>
 
+<section class="documents-section" id="dokumenty">
+  <div class="section-inner">
+    <p class="section-label">Ke stažení</p>
+    <h2 class="section-title">Dokumenty</h2>
+    <div class="documents-grid">
+      <div class="document-card">
+        <span class="document-icon">↓</span>
+        <div class="document-title">Obchodní rejstřík</div>
+        <p class="document-text">Výpis z nadačního rejstříku</p>
+        <a href="files/OR.pdf" target="_blank" class="btn-download">Stáhnout PDF</a>
+      </div>
+      <div class="document-card">
+        <span class="document-icon">↓</span>
+        <div class="document-title">Zakládací listina</div>
+        <p class="document-text">Zakládací listina nadačního fondu</p>
+        <a href="files/ZALOZENI_NF.pdf" target="_blank" class="btn-download">Stáhnout PDF</a>
+      </div>
+      <div class="document-card">
+        <span class="document-icon">↓</span>
+        <div class="document-title">Statut nadačního fondu</div>
+        <p class="document-text">Platný statut nadačního fondu NFSSE</p>
+        <a href="files/statut_nfsse.pdf" target="_blank" class="btn-download">Stáhnout PDF</a>
+      </div>
+      <div class="document-card">
+        <span class="document-icon">↓</span>
+        <div class="document-title">Výroční zpráva 2023</div>
+        <p class="document-text">Výroční zpráva za rok 2023 — heslo na vyžádání na office@nfsse.cz</p>
+        <a href="files/vz/vyrocni_zprava_2023.pdf" target="_blank" class="btn-download">Stáhnout PDF</a>
+      </div>
+      <div class="document-card">
+        <span class="document-icon">↓</span>
+        <div class="document-title">Výroční zpráva 2024</div>
+        <p class="document-text">Výroční zpráva za rok 2024 — heslo na vyžádání na office@nfsse.cz</p>
+        <a href="files/vz/vyrocni_zprava_2024.pdf" target="_blank" class="btn-download">Stáhnout PDF</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="footer-inner">
     <div class="footer-grid">
@@ -1182,33 +1159,20 @@
         <ul class="footer-links">
           <li><a href="#o-fondu">O fondu</a></li>
           <li><a href="#aktivity">Aktivity</a></li>
-          <li><a href="#stipendia">Stipendia</a></li>
-          <li><a href="#projekty">Projekty</a></li>
+          <li><a href="#dokumenty">Dokumenty</a></li>
           <li><a href="#jak-prispet">Jak přispět</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer-col-title">Pro zájemce</div>
-        <ul class="footer-links">
-          <li><a href="#stipendia">Stipendijní program</a></li>
-          <li><a href="#stipendia">Přihláška 2025</a></li>
-          <li><a href="#jak-prispet">Dárci a partneři</a></li>
           <li><a href="#kontakt">Kontakt</a></li>
         </ul>
       </div>
       <div>
         <div class="footer-col-title">Partneři</div>
         <ul class="footer-links">
-          <li><a href="https://cegu.ff.cuni.cz" target="_blank">Český egypt. ústav UK</a></li>
-          <li><a href="#" target="_blank">Národní muzeum Praha</a></li>
-          <li><a href="#" target="_blank">IAE – Cairo</a></li>
-          <li><a href="#" target="_blank">ÖAW Vídeň</a></li>
+          <li><a href="https://cegu.ff.cuni.cz" target="_blank" rel="noopener">Český egyptologický ústav UK</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2025 NFSSE · Nadační fond pro studium starověkého Egypta</span>
-      <span>Praha · IČO registrováno MV ČR</span>
+      <span>© Nadační fond pro studium starověkého Egypta, 2023–2026</span>
     </div>
   </div>
 </footer>
