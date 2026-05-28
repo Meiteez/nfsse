@@ -534,12 +534,14 @@
     line-height: 1.6;
     margin-bottom: 1.5rem;
   }
+  .document-card-note a,
   .document-card-note {
+    text-decoration: none;
+    font-style: italic;
     font-size: 0.8rem;
     color: var(--gold-dim);
-    font-style: italic;
-    margin-top: 0.75rem;
   }
+  .document-card-note { margin-top: 0.75rem; }
   .grants-section { background: var(--dark); }
   .grants-grid {
     display: grid;
@@ -914,10 +916,19 @@
     .project-status { margin-top: 0.5rem; display: inline-block; }
     .project-year { font-size: 0.75rem; }
 
-    .sand-canvas { display: none; }
-
+    .intro-overlay {
+      padding: 0 2rem;
+      text-align: center;
+    }
     .intro-logo { font-size: 2rem; }
-    .intro-sub { font-size: 0.55rem; letter-spacing: 0.3em; }
+    .intro-sub {
+      font-size: 0.55rem;
+      text-align: center;
+      letter-spacing: 0.2em;
+      word-break: keep-all;
+      white-space: normal;
+      max-width: 280px;
+    }
     .intro-hieroglyphs { font-size: 1rem; letter-spacing: 0.5em; }
   }
 
@@ -1300,13 +1311,13 @@
         <div class="document-card-title">Annual Report 2023</div>
         <div class="document-card-desc">Annual report for 2023</div>
         <a href="../files/vz/vyrocni_zprava_2023.pdf" target="_blank" class="btn-secondary">View PDF</a>
-        <div class="document-card-note">Password protected — request password at: office@nfsse.cz</div>
+        <div class="document-card-note">Password protected — request password at: <span>office@nfsse.cz</span></div>
       </div>
       <div class="document-card">
         <div class="document-card-title">Annual Report 2024</div>
         <div class="document-card-desc">Annual report for 2024</div>
         <a href="../files/vz/vyrocni_zprava_2024.pdf" target="_blank" class="btn-secondary">View PDF</a>
-        <div class="document-card-note">Password protected — request password at: office@nfsse.cz</div>
+        <div class="document-card-note">Password protected — request password at: <span>office@nfsse.cz</span></div>
       </div>
       <div class="document-card document-card--pending">
         <div class="document-card-title">Annual Report 2025</div>
