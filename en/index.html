@@ -1,0 +1,1523 @@
+<!DOCTYPE html>
+<!-- NFSSE | Last updated: 2026 | CS: index.html | EN: en/index.html -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Foundation for the Study of Ancient Egypt — public benefit and charitable foundation supporting archaeological research at Abusir, scholarships and publishing in Egyptology.">
+<meta property="og:title" content="NFSSE — Foundation for the Study of Ancient Egypt">
+<meta property="og:description" content="Public benefit and charitable foundation supporting Egyptology in the Czech Republic.">
+<meta property="og:url" content="https://www.nfsse.cz/en/">
+<title>NFSSE — Foundation for the Study of Ancient Egypt</title>
+<link rel="icon" type="image/jpeg" href="../photos/logo.jpg">
+<link rel="alternate" hreflang="cs" href="https://www.nfsse.cz/">
+<link rel="alternate" hreflang="en" href="https://www.nfsse.cz/en/">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8C97A;
+    --gold-dim: #8B6914;
+    --sand: #F5EDD6;
+    --sand-dark: #E8D9B0;
+    --obsidian: #0E0C08;
+    --dark: #1A1610;
+    --dark-mid: #2A2318;
+    --dark-surface: #221E14;
+    --papyrus: #F9F0DC;
+    --text-muted: #9A8860;
+    --red-acc: #8B2020;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'EB Garamond', Georgia, serif;
+    background: var(--obsidian);
+    color: var(--sand);
+    overflow-x: hidden;
+    font-size: 18px;
+    line-height: 1.75;
+  }
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 4rem;
+    height: 70px;
+    background: rgba(14,12,8,0.95);
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+    backdrop-filter: blur(8px);
+  }
+  .nav-logo {
+    font-family: 'Cinzel', serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--sand); font-size: 0.75rem; display: block; letter-spacing: 0.3em; font-weight: 400; margin-top: -2px; }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.3s;
+    text-transform: uppercase;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .lang-switch {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: var(--text-muted);
+    text-decoration: none;
+    border: 1px solid rgba(201,168,76,0.3);
+    padding: 0.3rem 0.7rem;
+    transition: all 0.3s;
+  }
+  .lang-switch:hover { color: var(--gold); border-color: var(--gold); }
+  .theme-toggle {
+    background: none;
+    border: 1px solid rgba(201,168,76,0.3);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    padding: 0;
+  }
+  .theme-toggle:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+  body.light {
+    --gold: #6B4F0A;
+    --gold-light: #7A5C0E;
+    --gold-dim: #4A3508;
+    --sand: #1A1008;
+    --sand-dark: #2A1E0A;
+    --obsidian: #F5EDD6;
+    --dark: #EDE0C0;
+    --dark-mid: #E4D4A8;
+    --dark-surface: #DFC98E44;
+    --text-muted: #4A3A20;
+  }
+  body.light nav {
+    background: rgba(245,237,214,0.97);
+    border-bottom: 1px solid rgba(139,105,20,0.2);
+  }
+  body.light .hero-bg {
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 40%, rgba(139,105,20,0.08) 0%, transparent 70%),
+      linear-gradient(180deg, #F5EDD6 0%, #EDE0C0 50%, #F5EDD6 100%);
+  }
+  body.light .stat-strip {
+    background: #E4D4A8;
+  }
+  body.light footer {
+    background: #EDE0C0;
+  }
+  body.light .hero-title { color: #1A1008; }
+  body.light .hero-subtitle { color: #4A3A20; }
+  body.light .hero-desc { color: #2A1E0A; }
+  body.light .section-title { color: #1A1008; }
+  body.light .activity-text { color: #4A3A20; }
+  body.light .about-text { color: #2A1E0A; }
+  body.light .value-text { color: #4A3A20; }
+  body.light .grant-desc { color: #4A3A20; }
+  body.light .footer-tagline { color: #4A3A20; }
+  body.light .footer-links a { color: #4A3A20; }
+  body.light .ci-value { color: #2A1E0A; }
+  body.light .contact-form-note { color: #2A1E0A; }
+  body.light .project-desc { color: #4A3A20; }
+  body.light .donate-option-info { color: #4A3A20; }
+  body.light .stat-label { color: #4A3A20; }
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    padding: 8rem 2rem 4rem;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 40%, rgba(201,168,76,0.06) 0%, transparent 70%),
+      linear-gradient(180deg, #0E0C08 0%, #1A1610 50%, #0E0C08 100%);
+  }
+  .sand-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.6;
+  }
+  .hero-eyebrow,
+  .hero-title,
+  .hero-subtitle,
+  .hero-divider,
+  .hero-desc,
+  .hero-ctas,
+  .hero-border,
+  .hero-ankh,
+  .hieroglyph-strip { position: relative; z-index: 2; }
+  .hero-border {
+    position: absolute; inset: 80px 40px 40px;
+    border: 1px solid rgba(201,168,76,0.15);
+    pointer-events: none;
+  }
+  .hero-border::before {
+    content: '';
+    position: absolute; inset: 8px;
+    border: 1px solid rgba(201,168,76,0.08);
+  }
+  .hieroglyph-strip {
+    position: absolute; top: 70px; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold-dim), var(--gold), var(--gold-dim), transparent);
+    opacity: 0.4;
+  }
+  .hero-eyebrow {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.5em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    position: relative;
+    display: flex; align-items: center; gap: 1.5rem;
+  }
+  .hero-eyebrow::before, .hero-eyebrow::after {
+    content: '';
+    width: 40px; height: 1px;
+    background: var(--gold);
+    opacity: 0.5;
+  }
+  .hero-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    font-weight: 700;
+    color: var(--sand);
+    line-height: 1.15;
+    letter-spacing: 0.02em;
+    margin-bottom: 0.5rem;
+    position: relative;
+  }
+  .hero-title .gold { color: var(--gold); }
+  .hero-subtitle {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+    letter-spacing: 0.3em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 2.5rem;
+    position: relative;
+  }
+  .hero-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 0 auto 2.5rem;
+    width: 300px;
+    position: relative;
+    z-index: 2;
+  }
+  .divider-line {
+    flex: 1;
+    height: 1px;
+    background: var(--gold);
+    opacity: 0.5;
+  }
+  .divider-line:last-child {
+    background: var(--gold);
+    opacity: 0.5;
+  }
+  .divider-eye {
+    font-size: 1.4rem;
+    color: var(--gold);
+    line-height: 1;
+    opacity: 0.85;
+    padding: 0 0.3rem;
+  }
+  .hero-desc {
+    max-width: 620px;
+    font-size: 1.15rem;
+    color: var(--sand-dark);
+    line-height: 1.9;
+    margin-bottom: 3rem;
+    position: relative;
+    font-style: italic;
+  }
+  .hero-ctas { display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; position: relative; }
+  .btn-primary {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    padding: 1rem 2.5rem;
+    background: var(--gold);
+    color: var(--obsidian);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+    border: 1px solid var(--gold);
+    cursor: pointer;
+  }
+  .btn-primary:hover { background: var(--gold-light); border-color: var(--gold-light); }
+  .btn-secondary {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    padding: 1rem 2.5rem;
+    background: transparent;
+    color: var(--sand);
+    text-decoration: none;
+    border: 1px solid rgba(201,168,76,0.4);
+    transition: all 0.3s;
+  }
+  .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+  .hero-ankh {
+    font-size: 5rem;
+    color: rgba(201,168,76,0.08);
+    position: absolute;
+    right: 8%;
+    top: 50%;
+    transform: translateY(-50%);
+    line-height: 1;
+    pointer-events: none;
+    font-family: 'Cinzel', serif;
+  }
+  section { padding: 6rem 2rem; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.6em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    display: flex; align-items: center; gap: 1rem;
+  }
+  .section-label::after { content: ''; flex: 0 0 40px; height: 1px; background: var(--gold); opacity: 0.5; }
+  .section-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 600;
+    color: var(--sand);
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+  .gold-rule {
+    width: 60px; height: 2px;
+    background: var(--gold);
+    margin-bottom: 2.5rem;
+    opacity: 0.7;
+  }
+  .about-section { background: var(--dark); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+  .about-photo-wrap {
+    position: sticky;
+    top: 100px;
+  }
+  .about-photo-frame {
+    position: relative;
+    border: 1px solid var(--gold);
+    padding: 8px;
+  }
+  .about-photo-frame::before {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    border: 1px solid rgba(201,168,76,0.25);
+    pointer-events: none;
+  }
+  .about-photo {
+    width: 100%;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+    filter: sepia(0.2) brightness(0.9);
+  }
+  .about-photo-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2.5rem 1.2rem 1rem;
+    background: linear-gradient(transparent, rgba(10,8,5,0.85));
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-align: center;
+  }
+  .about-text { font-size: 1.05rem; color: var(--sand-dark); }
+  .about-text p { margin-bottom: 1.5rem; }
+  .about-values {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: rgba(201,168,76,0.15);
+    border: 1px solid rgba(201,168,76,0.15);
+  }
+  .value-item {
+    background: var(--dark-surface);
+    padding: 1.8rem;
+  }
+  .value-num {
+    font-family: 'Cinzel', serif;
+    font-size: 2rem;
+    color: rgba(201,168,76,0.2);
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+  .value-title {
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    color: var(--gold);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+  .value-text { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; }
+  .stat-strip {
+    background: var(--dark-mid);
+    border-top: 1px solid rgba(201,168,76,0.12);
+    border-bottom: 1px solid rgba(201,168,76,0.12);
+    padding: 4rem 2rem;
+  }
+  .stats-row {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .stat-item {
+    flex: 1;
+    text-align: center;
+    padding: 0 2rem;
+    border-right: 1px solid rgba(201,168,76,0.15);
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'Cinzel', serif;
+    font-size: 2.5rem;
+    color: var(--gold);
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+  .stat-label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-family: 'Cinzel', serif;
+  }
+  .activities-section { background: var(--obsidian); }
+  .activities-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(201,168,76,0.1);
+    border: 1px solid rgba(201,168,76,0.1);
+    margin-top: 3rem;
+  }
+  .activity-card {
+    background: var(--dark);
+    padding: 2.5rem;
+    transition: background 0.3s;
+  }
+  .activity-card:hover { background: var(--dark-surface); }
+  .activity-icon { font-size: 2rem; margin-bottom: 1.2rem; display: block; opacity: 0.8; }
+  .activity-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    color: var(--gold);
+    letter-spacing: 0.08em;
+    margin-bottom: 0.75rem;
+  }
+  .activity-text { font-size: 0.95rem; color: var(--text-muted); line-height: 1.7; }
+  .activity-tag {
+    display: inline-block;
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.75rem;
+    border: 1px solid rgba(201,168,76,0.3);
+    color: var(--gold-dim);
+    margin-top: 1.2rem;
+  }
+  .about-mission { list-style: none; margin-bottom: 1.5rem; }
+  .about-mission li {
+    font-size: 1.05rem;
+    color: var(--sand-dark);
+    padding: 0.6rem 0;
+    border-bottom: 1px solid rgba(201,168,76,0.08);
+    padding-left: 1.25rem;
+    position: relative;
+    line-height: 1.7;
+  }
+  .about-mission li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--gold-dim);
+  }
+  .documents-section { background: var(--dark-mid); padding-top: 2rem; }
+  .documents-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(201,168,76,0.1);
+    border: 1px solid rgba(201,168,76,0.1);
+    margin-top: 3rem;
+  }
+  .document-card {
+    background: var(--dark);
+    padding: 2.5rem;
+    transition: background 0.3s;
+  }
+  .document-card:hover { background: var(--dark-surface); }
+  .document-card--pending {
+    opacity: 0.5;
+  }
+  .document-card-pending {
+    display: inline-block;
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    border: 1px solid rgba(201,168,76,0.2);
+    padding: 0.4rem 1rem;
+    margin-top: 0.5rem;
+  }
+  .document-card-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    color: var(--gold);
+    letter-spacing: 0.08em;
+    margin-bottom: 0.75rem;
+  }
+  .document-card-desc {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+  .document-card-note {
+    font-size: 0.8rem;
+    color: var(--gold-dim);
+    font-style: italic;
+    margin-top: 0.75rem;
+  }
+  .grants-section { background: var(--dark); }
+  .grants-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+  .grant-card {
+    border: 1px solid rgba(201,168,76,0.2);
+    padding: 2.5rem;
+    background: var(--dark-surface);
+  }
+  .grant-card.featured {
+    border-color: var(--gold);
+    background: rgba(201,168,76,0.04);
+  }
+  .grant-badge {
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--obsidian);
+    background: var(--gold);
+    padding: 0.3rem 0.8rem;
+    display: inline-block;
+    margin-bottom: 1.2rem;
+  }
+  .grant-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.2rem;
+    color: var(--sand);
+    margin-bottom: 0.5rem;
+  }
+  .grant-amount {
+    font-family: 'Cinzel', serif;
+    font-size: 1.8rem;
+    color: var(--gold);
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  .grant-amount span { font-size: 0.85rem; color: var(--text-muted); font-weight: 400; }
+  .grant-desc { font-size: 0.95rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 1.5rem; }
+  .grant-conditions { list-style: none; }
+  .grant-conditions li {
+    font-size: 0.9rem;
+    color: var(--sand-dark);
+    padding: 0.4rem 0;
+    border-bottom: 1px solid rgba(201,168,76,0.08);
+    padding-left: 1rem;
+    position: relative;
+  }
+  .grant-conditions li::before { content: '—'; position: absolute; left: 0; color: var(--gold-dim); }
+  .projects-section { background: var(--dark-mid); }
+  .projects-list { margin-top: 3rem; }
+  .project-item {
+    display: grid;
+    grid-template-columns: 80px 1fr auto;
+    gap: 2rem;
+    align-items: start;
+    padding: 2rem 0;
+    border-bottom: 1px solid rgba(201,168,76,0.1);
+  }
+  .project-item:first-child { border-top: 1px solid rgba(201,168,76,0.1); }
+  .project-year {
+    font-family: 'Cinzel', serif;
+    font-size: 0.8rem;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    padding-top: 0.2rem;
+  }
+  .project-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.05rem;
+    color: var(--sand);
+    margin-bottom: 0.4rem;
+  }
+  .project-desc { font-size: 0.9rem; color: var(--text-muted); }
+  .project-status {
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.8rem;
+    border: 1px solid;
+  }
+  .status-active { border-color: rgba(139,200,100,0.4); color: #8BC864; }
+  .status-done { border-color: rgba(201,168,76,0.3); color: var(--gold-dim); }
+  .status-plan { border-color: rgba(154,136,96,0.3); color: var(--text-muted); }
+  .donate-section { background: var(--dark); text-align: center; }
+  .donate-inner { max-width: 700px; margin: 0 auto; }
+  .donate-desc { font-size: 1.1rem; color: var(--sand-dark); font-style: italic; margin: 2rem 0 3rem; }
+  .donate-options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(201,168,76,0.12);
+    border: 1px solid rgba(201,168,76,0.12);
+    margin-bottom: 3rem;
+    text-align: left;
+  }
+  .donate-option { background: var(--dark-surface); padding: 2rem 1.5rem; }
+  .donate-option-title {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+  }
+  .donate-option-info { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; }
+  .donate-option-info strong { color: var(--sand); display: block; font-style: normal; font-family: 'Cinzel', serif; font-size: 0.95rem; margin-top: 0.5rem; }
+  .tax-note {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    border: 1px solid rgba(201,168,76,0.1);
+    padding: 1rem 1.5rem;
+    font-style: italic;
+  }
+  .tax-note strong { color: var(--gold-dim); }
+  .contact-section { background: var(--dark-mid); padding-bottom: 2rem; }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+    margin-top: 2rem;
+  }
+  .contact-info-list { list-style: none; margin-top: 1rem; }
+  .contact-info-list li {
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(201,168,76,0.1);
+    display: flex;
+    gap: 1rem;
+  }
+  .ci-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    min-width: 90px;
+    padding-top: 0.15rem;
+  }
+  .ci-value { font-size: 0.95rem; color: var(--sand-dark); }
+  .contact-form-note { font-size: 1rem; color: var(--sand-dark); line-height: 1.8; margin-bottom: 2rem; font-style: italic; }
+  .contact-form-fields { display: flex; flex-direction: column; gap: 1rem; }
+  .form-field input, .form-field textarea {
+    width: 100%;
+    background: rgba(201,168,76,0.04);
+    border: 1px solid rgba(201,168,76,0.2);
+    padding: 0.85rem 1rem;
+    color: var(--sand);
+    font-family: 'EB Garamond', serif;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+  .form-field input:focus, .form-field textarea:focus { border-color: var(--gold); }
+  .form-field input::placeholder, .form-field textarea::placeholder { color: var(--text-muted); }
+  .form-field textarea { height: 100px; resize: none; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  footer {
+    background: var(--obsidian);
+    border-top: 1px solid rgba(201,168,76,0.1);
+    padding: 4rem 2rem 2rem;
+  }
+  .footer-inner { max-width: 1100px; margin: 0 auto; }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+  }
+  .footer-brand { font-family: 'Cinzel', serif; font-size: 1rem; color: var(--gold); letter-spacing: 0.1em; margin-bottom: 1rem; }
+  .footer-brand-sub { font-size: 0.8rem; color: var(--text-muted); letter-spacing: 0.3em; text-transform: uppercase; }
+  .footer-tagline { font-size: 0.9rem; color: var(--text-muted); font-style: italic; line-height: 1.7; margin-top: 1rem; }
+  .footer-col-title { font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; }
+  .footer-links { list-style: none; }
+  .footer-links li { margin-bottom: 0.6rem; }
+  .footer-links a { font-size: 0.9rem; color: var(--text-muted); text-decoration: none; transition: color 0.3s; }
+  .footer-links a:hover { color: var(--sand); }
+  .footer-bottom {
+    border-top: 1px solid rgba(201,168,76,0.08);
+    padding-top: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    color: rgba(154,136,96,0.5);
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.1em;
+  }
+  .footer-hieroglyph { font-size: 1.5rem; opacity: 0.15; letter-spacing: 0.5rem; }
+
+  /* Mobile nav – hidden on desktop */
+  .nav-toggle-input { position: absolute; opacity: 0; pointer-events: none; width: 0; height: 0; }
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    width: 44px;
+    height: 44px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 200;
+    flex-shrink: 0;
+  }
+  .nav-toggle-bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--gold);
+    transition: transform 0.3s, opacity 0.3s;
+    transform-origin: center;
+  }
+  .nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 150;
+    background: rgba(14, 12, 8, 0.98);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.35s, visibility 0.35s;
+  }
+  .nav-overlay::before {
+    content: '';
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold-dim), var(--gold), var(--gold-dim), transparent);
+    opacity: 0.4;
+  }
+  .nav-overlay-links {
+    list-style: none;
+    text-align: center;
+    padding: 2rem;
+  }
+  .nav-overlay-links li { margin-bottom: 0; }
+  .nav-overlay-links a {
+    font-family: 'Cinzel', serif;
+    font-size: 0.875rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--sand);
+    text-decoration: none;
+    display: block;
+    padding: 1rem 2rem;
+    min-height: 44px;
+    line-height: 1.4;
+    transition: color 0.3s;
+  }
+  .nav-overlay-links a:hover { color: var(--gold); }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+  .hamburger span {
+    display: block;
+    width: 22px;
+    height: 1px;
+    background: var(--gold);
+    transition: all 0.3s;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    inset: 70px 0 0 0;
+    background: rgba(14,12,8,0.98);
+    z-index: 99;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid rgba(201,168,76,0.15);
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu ul { list-style: none; text-align: center; }
+  .mobile-menu li { margin: 1.5rem 0; }
+  .mobile-menu a {
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--sand);
+    text-decoration: none;
+  }
+  .mobile-menu a:hover { color: var(--gold); }
+
+  @media (max-width: 900px) {
+    nav { padding: 0 1.5rem; }
+    .nav-links { display: none; }
+    .about-grid, .grants-grid, .contact-grid { grid-template-columns: 1fr; }
+    .about-photo-wrap { position: static; }
+    .activities-grid { grid-template-columns: 1fr; }
+    .documents-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .donate-options { grid-template-columns: 1fr; }
+    .stats-row { flex-wrap: wrap; }
+    .stat-item { border-right: none; border-bottom: 1px solid rgba(201,168,76,0.15); }
+    .project-item { grid-template-columns: 1fr; gap: 0.5rem; }
+  }
+
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    nav { padding: 0 1.2rem; }
+
+    .hero { padding: 6rem 1.5rem 3rem; min-height: 100svh; }
+    .hero-title { font-size: 2rem; }
+    .hero-subtitle { font-size: 0.75rem; letter-spacing: 0.2em; }
+    .hero-desc { font-size: 1rem; }
+    .hero-border { display: none; }
+    .hero-ankh { display: none; }
+
+    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .about-photo-wrap { position: static; }
+    .about-photo { height: auto; }
+    .about-values { grid-template-columns: 1fr 1fr; }
+    .value-item { padding: 1.2rem; }
+
+    .activities-grid { grid-template-columns: 1fr; }
+    .activity-card { padding: 1.5rem; }
+
+    .donate-options { grid-template-columns: 1fr; }
+
+    .documents-grid { grid-template-columns: 1fr; }
+
+    .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .form-row { grid-template-columns: 1fr; }
+
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .footer-bottom { flex-direction: column; text-align: center; gap: 0.5rem; }
+
+    .stats-row { flex-wrap: wrap; }
+    .stat-item {
+      flex: 0 0 50%;
+      border-right: none;
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+      padding: 1.5rem;
+    }
+
+    body { font-size: 16px; }
+    section { padding: 3.5rem 1.2rem; }
+    .section-title { font-size: 1.6rem; }
+    .btn-primary, .btn-secondary {
+      padding: 0.9rem 1.5rem;
+      min-height: 44px;
+    }
+    .grant-card { padding: 1.5rem; }
+    .project-item { grid-template-columns: 1fr; gap: 0.4rem; }
+    .project-status { margin-top: 0.5rem; display: inline-block; }
+    .project-year { font-size: 0.75rem; }
+
+    .sand-canvas { display: none; }
+
+    .intro-logo { font-size: 2rem; }
+    .intro-sub { font-size: 0.55rem; letter-spacing: 0.3em; }
+    .intro-hieroglyphs { font-size: 1rem; letter-spacing: 0.5em; }
+  }
+
+  /* INTRO ANIMATION */
+  .intro-overlay {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 60% at 50% 50%, #1A1610 0%, #0E0C08 100%);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+  }
+
+  .intro-hieroglyphs {
+    font-size: 1.4rem;
+    letter-spacing: 0.8em;
+    color: rgba(201,168,76,0.25);
+    opacity: 0;
+    transform: scale(0.9);
+    animation: introFadeUp 1.2s ease 0.2s forwards;
+  }
+
+  .intro-logo {
+    font-family: 'Cinzel', serif;
+    font-size: 3rem;
+    letter-spacing: 0.5em;
+    color: var(--gold);
+    opacity: 0;
+    transform: translateY(16px);
+    animation: introFadeUp 1.2s ease 0.6s forwards;
+  }
+
+  .intro-line {
+    width: 0px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    animation: introLine 1.2s ease 1.2s forwards;
+  }
+
+  .intro-sub {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.45em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    opacity: 0;
+    transform: translateY(10px);
+    animation: introFadeUp 1s ease 1.6s forwards;
+  }
+
+  .intro-est {
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+    color: rgba(201,168,76,0.4);
+    opacity: 0;
+    animation: introFadeUp 1s ease 2s forwards;
+  }
+
+  @keyframes introFadeUp {
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes introLine {
+    to { width: 160px; }
+  }
+
+  body.launching {
+    animation: none;
+  }
+
+  .page-content {
+    animation: none;
+  }
+
+  @keyframes pageRise {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="intro-overlay" id="introOverlay">
+  <div class="intro-hieroglyphs">𓂀 𓇋 𓏏 𓆣 𓊽 𓂋 𓇗</div>
+  <div class="intro-logo">NFSSE</div>
+  <div class="intro-line"></div>
+  <div class="intro-sub">Foundation for the Study of Ancient Egypt</div>
+  <div class="intro-est">Est. 2023</div>
+</div>
+
+<nav>
+  <a href="#uvod" class="nav-logo">
+    NFSSE
+    <span>Foundation · Ancient Egypt</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#o-fondu">About</a></li>
+    <li><a href="#aktivity">Activities</a></li>
+    <li><a href="#dokumenty">Documents</a></li>
+    <li><a href="#jak-prispet">Support Us</a></li>
+    <li><a href="#kontakt">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="../index.html" class="lang-switch">CZ</a>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+      <span class="theme-icon">☀</span>
+    </button>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <input type="checkbox" id="nav-toggle" class="nav-toggle-input" aria-hidden="true">
+  <label for="nav-toggle" class="nav-toggle" aria-label="Open menu">
+    <span class="nav-toggle-bar"></span>
+    <span class="nav-toggle-bar"></span>
+    <span class="nav-toggle-bar"></span>
+  </label>
+  <div class="nav-overlay" id="nav-overlay">
+    <ul class="nav-overlay-links">
+      <li><a href="#o-fondu">About</a></li>
+      <li><a href="#aktivity">Activities</a></li>
+      <li><a href="#dokumenty">Documents</a></li>
+      <li><a href="#jak-prispet">Support Us</a></li>
+      <li><a href="#kontakt">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="#o-fondu" onclick="toggleMenu()">About</a></li>
+    <li><a href="#aktivity" onclick="toggleMenu()">Activities</a></li>
+    <li><a href="#dokumenty" onclick="toggleMenu()">Documents</a></li>
+    <li><a href="#jak-prispet" onclick="toggleMenu()">Support Us</a></li>
+    <li><a href="#kontakt" onclick="toggleMenu()">Contact</a></li>
+  </ul>
+</div>
+
+<section class="hero" id="uvod">
+  <div class="hero-bg"></div>
+  <canvas id="sandCanvas" class="sand-canvas"></canvas>
+  <div class="hieroglyph-strip"></div>
+  <div class="hero-border"></div>
+  <div class="hero-ankh">𓂀</div>
+  <div class="hero-eyebrow">Est. 2023</div>
+  <h1 class="hero-title">
+    Foundation for the Study<br><span class="gold">of Ancient Egypt</span>
+  </h1>
+  <p class="hero-subtitle">Public benefit and charitable foundation</p>
+  <div class="hero-divider">
+    <span class="divider-line"></span>
+    <span class="divider-eye">𓂀</span>
+    <span class="divider-line"></span>
+  </div>
+  <p class="hero-desc">
+    We connect passion for Egyptology with academic excellence.
+    We support students, researchers and projects uncovering the secrets
+    of the world's oldest civilisation.
+  </p>
+</section>
+
+<section class="about-section" id="o-fondu">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div>
+        <p class="section-label">About</p>
+        <h2 class="section-title">Purpose of the Foundation</h2>
+        <div class="gold-rule"></div>
+        <div class="about-text">
+          <ul class="about-mission">
+            <li>to support primarily archaeological research at the Abusir site and related activities</li>
+            <li>to support the study of ancient Egypt in general, documentation of sites in Egypt and to deepen knowledge in these areas</li>
+            <li>to expand the specialist book collection, organise seminars, conferences, lectures and exhibitions</li>
+            <li>to support multidisciplinary research and cooperation with representatives of social science, technical and natural science disciplines</li>
+            <li>to support specialist and popular scientific publishing activities in the field of Egyptology</li>
+            <li>to support comparative studies of civilisations</li>
+            <li>to award scholarships for the study of Egyptology</li>
+          </ul>
+          <p>The purpose of the foundation also includes raising funds to support its activities, organising cultural and social events, as well as protecting and developing ethical values in the field of Egyptology.</p>
+        </div>
+      </div>
+      <div class="about-photo-wrap">
+        <div class="about-photo-frame">
+          <img src="../photos/said.jpg" alt="Abusir site, Egypt" class="about-photo">
+          <div class="about-photo-caption">Abusir, Egypt</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="activities-section" id="aktivity">
+  <div class="section-inner">
+    <p class="section-label">What we do</p>
+    <h2 class="section-title">Areas of Activity</h2>
+    <div class="activities-grid">
+      <div class="activity-card">
+        <span class="activity-icon">𓇳</span>
+        <div class="activity-title">Abusir Research</div>
+        <p class="activity-text">Archaeological research at the Abusir site and related activities.</p>
+      </div>
+      <div class="activity-card">
+        <span class="activity-icon">𓇗</span>
+        <div class="activity-title">Study &amp; Documentation</div>
+        <p class="activity-text">Study of ancient Egypt and documentation of sites in Egypt.</p>
+      </div>
+      <div class="activity-card">
+        <span class="activity-icon">𓏏</span>
+        <div class="activity-title">Library &amp; Events</div>
+        <p class="activity-text">Book collection, seminars, conferences, lectures and exhibitions.</p>
+      </div>
+      <div class="activity-card">
+        <span class="activity-icon">𓂀</span>
+        <div class="activity-title">Multidisciplinary Research</div>
+        <p class="activity-text">Cooperation across social, technical and natural sciences.</p>
+      </div>
+      <div class="activity-card">
+        <span class="activity-icon">𓆣</span>
+        <div class="activity-title">Publishing</div>
+        <p class="activity-text">Specialist and popular scientific publishing in Egyptology.</p>
+      </div>
+      <div class="activity-card">
+        <span class="activity-icon">𓊽</span>
+        <div class="activity-title">Scholarships</div>
+        <p class="activity-text">Awarding scholarships for the study of Egyptology.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="donate-section" id="jak-prispet">
+  <div class="section-inner donate-inner">
+    <p class="section-label" style="justify-content: center;">Support us</p>
+    <h2 class="section-title">Every contribution<br>preserves the legacy</h2>
+    <div class="gold-rule" style="margin: 0 auto 0;"></div>
+    <p class="donate-desc">
+      Without private donors, scholarships would not exist. Your support directly
+      funds students, researchers and projects that would otherwise never happen.
+    </p>
+    <div class="donate-options">
+      <div class="donate-option">
+        <div class="donate-option-title">Bank Transfer</div>
+        <div class="donate-option-info">
+          One-time or regular donation to the foundation account.
+          <strong>367175675 / 0300<br>ČSOB, a.s.</strong>
+          IBAN: CZ09 0300 0000 0003 6717 5675<br>
+          BIC/SWIFT: CEKOCZPP
+        </div>
+      </div>
+      <div class="donate-option">
+        <div class="donate-option-title">Tax Deduction</div>
+        <div class="donate-option-info">
+          Donations to the foundation are tax deductible.
+          <strong>Individuals: up to 15%<br>Legal entities: up to 10%</strong>
+          of the tax base (pursuant to Czech Tax Act)
+        </div>
+      </div>
+      <div class="donate-option">
+        <div class="donate-option-title">Corporate Partnership</div>
+        <div class="donate-option-info">
+          Companies can become partners with logo placement on the website and materials.
+          <strong>From CZK 50,000 / year</strong>
+          Contact us for details.
+        </div>
+      </div>
+    </div>
+    <div class="tax-note">
+      <strong>Note:</strong> We issue donation confirmations for tax purposes upon request.
+    </div>
+  </div>
+</section>
+
+<section class="contact-section" id="kontakt">
+  <div class="section-inner">
+    <p class="section-label">Contact</p>
+    <h2 class="section-title">Get in touch</h2>
+    <div class="gold-rule"></div>
+    <div class="contact-grid">
+      <div>
+        <ul class="contact-info-list">
+          <li>
+            <span class="ci-label">Name</span>
+            <span class="ci-value">Foundation for the Study of Ancient Egypt</span>
+          </li>
+          <li>
+            <span class="ci-label">Abbreviation</span>
+            <span class="ci-value">NFSSE</span>
+          </li>
+          <li>
+            <span class="ci-label">Address</span>
+            <span class="ci-value">Vítězslava Hálka 1532/2, 434 01 Most</span>
+          </li>
+          <li>
+            <span class="ci-label">E-mail</span>
+            <span class="ci-value">office@nfsse.cz</span>
+          </li>
+          <li>
+            <span class="ci-label">Web</span>
+            <span class="ci-value">www.nfsse.cz</span>
+          </li>
+          <li>
+            <span class="ci-label">Tel</span>
+            <span class="ci-value">+420 602 301 257</span>
+          </li>
+          <li>
+            <span class="ci-label">ID No.</span>
+            <span class="ci-value">190 71 035</span>
+          </li>
+          <li>
+            <span class="ci-label">Data box</span>
+            <span class="ci-value">k229a9r</span>
+          </li>
+          <li>
+            <span class="ci-label">Chairman of the Board</span>
+            <span class="ci-value">Ing. Vladimír Brůna, Ph.D.</span>
+          </li>
+          <li>
+            <span class="ci-label">Research Guarantor</span>
+            <span class="ci-value">prof. Mgr. Miroslav Bárta, Dr.</span>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <p class="contact-form-note">Interested in scholarships, cooperation or would like to make a donation? Write to us — we respond within 3 working days.</p>
+        <div class="contact-form-fields">
+          <div class="form-row">
+            <div class="form-field"><input type="text" id="contact-name" placeholder="Full name"></div>
+            <div class="form-field"><input type="email" id="contact-email" placeholder="Email address"></div>
+          </div>
+          <div class="form-field">
+            <input type="text" id="contact-subject" placeholder="Subject (scholarship / donation / other)">
+          </div>
+          <div class="form-field">
+            <textarea id="contact-message" placeholder="Your message..."></textarea>
+          </div>
+          <div>
+            <button class="btn-primary" style="width: 100%;" onclick="sendMail()">Send message</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="documents-section" id="dokumenty">
+  <div class="section-inner">
+    <p class="section-label">Downloads</p>
+    <h2 class="section-title">Documents</h2>
+    <div class="documents-grid">
+      <div class="document-card">
+        <div class="document-card-title">Commercial Register</div>
+        <div class="document-card-desc">Extract from the foundation register</div>
+        <a href="../files/OR.pdf" target="_blank" class="btn-secondary">View PDF</a>
+      </div>
+      <div class="document-card">
+        <div class="document-card-title">Founding Deed</div>
+        <div class="document-card-desc">Founding deed of the foundation</div>
+        <a href="../files/ZALOZENI_NF.pdf" target="_blank" class="btn-secondary">View PDF</a>
+      </div>
+      <div class="document-card">
+        <div class="document-card-title">Foundation Statute</div>
+        <div class="document-card-desc">Current statute of NFSSE</div>
+        <a href="../files/statut_nfsse.pdf" target="_blank" class="btn-secondary">View PDF</a>
+      </div>
+      <div class="document-card">
+        <div class="document-card-title">Annual Report 2023</div>
+        <div class="document-card-desc">Annual report for 2023</div>
+        <a href="../files/vz/vyrocni_zprava_2023.pdf" target="_blank" class="btn-secondary">View PDF</a>
+        <div class="document-card-note">Password protected — request password at: office@nfsse.cz</div>
+      </div>
+      <div class="document-card">
+        <div class="document-card-title">Annual Report 2024</div>
+        <div class="document-card-desc">Annual report for 2024</div>
+        <a href="../files/vz/vyrocni_zprava_2024.pdf" target="_blank" class="btn-secondary">View PDF</a>
+        <div class="document-card-note">Password protected — request password at: office@nfsse.cz</div>
+      </div>
+      <div class="document-card document-card--pending">
+        <div class="document-card-title">Annual Report 2025</div>
+        <div class="document-card-desc">In preparation</div>
+        <span class="document-card-pending">Coming soon</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">NFSSE <span class="footer-brand-sub">· Foundation</span></div>
+        <p class="footer-tagline">Connecting Czech science<br>with the millennial wisdom of Egypt.<br>Since 2023.</p>
+        <div class="footer-hieroglyph" style="margin-top: 1.5rem;">𓂀 𓇋 𓏏 𓆣 𓊽</div>
+      </div>
+      <div>
+        <div class="footer-col-title">Navigation</div>
+        <ul class="footer-links">
+          <li><a href="#o-fondu">About</a></li>
+          <li><a href="#aktivity">Activities</a></li>
+          <li><a href="#dokumenty">Documents</a></li>
+          <li><a href="#jak-prispet">Support Us</a></li>
+          <li><a href="#kontakt">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Partners</div>
+        <ul class="footer-links">
+          <li><a href="https://cegu.ff.cuni.cz" target="_blank" rel="noopener">Czech Institute of Egyptology, Charles University</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-links">
+          <li><a href="mailto:office@nfsse.cz">office@nfsse.cz</a></li>
+          <li><a href="tel:+420602301257">+420 602 301 257</a></li>
+          <li style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem;">
+            Vítězslava Hálka 1532/2<br>434 01 Most
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© Foundation for the Study of Ancient Egypt, 2023–2026</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu() {
+  const menu = document.getElementById('mobileMenu');
+  const burger = document.querySelector('.hamburger');
+  menu.classList.toggle('open');
+  burger.classList.toggle('open');
+}
+
+  document.querySelectorAll('.nav-overlay a').forEach(function (link) {
+    link.addEventListener('click', function () {
+      document.getElementById('nav-toggle').checked = false;
+    });
+  });
+
+  // Intro overlay
+  window.addEventListener('load', function() {
+    const overlay = document.getElementById('introOverlay');
+    if (!overlay) return;
+
+    // Hide page content behind overlay, not the overlay itself
+    const pageContent = document.querySelectorAll(
+      'nav, .hero, .about-section, .stat-strip, .activities-section, ' +
+      '.grants-section, .projects-section, .donate-section, ' +
+      '.contact-section, .documents-section, footer'
+    );
+
+    pageContent.forEach(function(el) {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(18px)';
+    });
+
+    setTimeout(function() {
+      overlay.style.display = 'none';
+
+      pageContent.forEach(function(el) {
+        el.style.transition = 'opacity 1.2s ease, transform 1.2s ease';
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
+      });
+    }, 3950);
+  });
+</script>
+
+<script>
+function sendMail() {
+  const name    = document.getElementById('contact-name').value.trim();
+  const email   = document.getElementById('contact-email').value.trim();
+  const subject = document.getElementById('contact-subject').value.trim();
+  const message = document.getElementById('contact-message').value.trim();
+
+  if (!name || !email || !message) {
+    alert('Please fill in your name, email and message.');
+    return;
+  }
+
+  const body = `Name: ${name}%0AEmail: ${email}%0A%0A${message}`;
+  const mailtoLink = `mailto:office@nfsse.cz?subject=${encodeURIComponent(subject || 'Message from NFSSE website')}&body=${body}`;
+  window.location.href = mailtoLink;
+}
+</script>
+
+<script>
+function toggleTheme() {
+  const body = document.body;
+  const icon = document.querySelector('.theme-icon');
+  if (body.classList.contains('light')) {
+    body.classList.remove('light');
+    icon.textContent = '☀';
+    localStorage.setItem('theme', 'dark');
+  } else {
+    body.classList.add('light');
+    icon.textContent = '☾';
+    localStorage.setItem('theme', 'light');
+  }
+}
+
+(function() {
+  const saved = localStorage.getItem('theme');
+  if (saved === 'light') {
+    document.body.classList.add('light');
+    const icon = document.querySelector('.theme-icon');
+    if (icon) icon.textContent = '☾';
+  }
+})();
+
+// Golden sand particles
+(function() {
+  const canvas = document.getElementById('sandCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+
+  let particles = [];
+  const COUNT = 55;
+
+  function resize() {
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+  }
+
+  function randomBetween(a, b) {
+    return a + Math.random() * (b - a);
+  }
+
+  function createParticle() {
+    return {
+      x: randomBetween(0, canvas.width),
+      y: randomBetween(-20, canvas.height),
+      size: randomBetween(0.8, 2.2),
+      speedY: randomBetween(0.15, 0.55),
+      speedX: randomBetween(-0.15, 0.15),
+      opacity: randomBetween(0.2, 0.7),
+      wobble: randomBetween(0, Math.PI * 2),
+      wobbleSpeed: randomBetween(0.005, 0.02)
+    };
+  }
+
+  function init() {
+    resize();
+    particles = [];
+    for (let i = 0; i < COUNT; i++) {
+      const p = createParticle();
+      p.y = randomBetween(0, canvas.height);
+      particles.push(p);
+    }
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    particles.forEach(function(p) {
+      p.wobble += p.wobbleSpeed;
+      p.x += p.speedX + Math.sin(p.wobble) * 0.3;
+      p.y += p.speedY;
+
+      if (p.y > canvas.height + 10) {
+        p.y = -10;
+        p.x = randomBetween(0, canvas.width);
+        p.opacity = randomBetween(0.2, 0.7);
+      }
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(201, 168, 76, ' + p.opacity + ')';
+      ctx.fill();
+    });
+
+    requestAnimationFrame(draw);
+  }
+
+  window.addEventListener('resize', function() {
+    resize();
+  });
+
+  // Start after intro overlay is gone
+  setTimeout(function() {
+    init();
+    draw();
+  }, 4500);
+})();
+</script>
+
+</body>
+</html>

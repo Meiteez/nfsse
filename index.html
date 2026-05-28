@@ -1,9 +1,21 @@
 <!DOCTYPE html>
+<!-- NFSSE | Last updated: 2026 | CS: index.html | EN: en/index.html -->
 <html lang="cs">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NFSSE – Nadační fond pro studium starověkého Egypta</title>
+<meta name="description" content="Nadační fond pro studium starověkého Egypta — veřejně prospěšný a dobročinný nadační fond podporující archeologické výzkumy na lokalitě Abúsír, stipendia a publikační činnost v oboru egyptologie.">
+<meta name="keywords" content="egyptologie, Abúsír, nadační fond, stipendia, archeologie, starověký Egypt">
+<meta property="og:title" content="NFSSE — Nadační fond pro studium starověkého Egypta">
+<meta property="og:description" content="Veřejně prospěšný a dobročinný nadační fond podporující egyptologii v České republice.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.nfsse.cz">
+<meta name="author" content="NFSSE">
+<meta name="robots" content="index, follow">
+<title>NFSSE — Nadační fond pro studium starověkého Egypta</title>
+<link rel="icon" type="image/jpeg" href="photos/logo.jpg">
+<link rel="alternate" hreflang="cs" href="https://www.nfsse.cz/">
+<link rel="alternate" hreflang="en" href="https://www.nfsse.cz/en/">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -58,18 +70,82 @@
     text-transform: uppercase;
   }
   .nav-links a:hover { color: var(--gold); }
-  .nav-donate {
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .lang-switch {
     font-family: 'Cinzel', serif;
     font-size: 0.7rem;
     letter-spacing: 0.2em;
-    text-transform: uppercase;
-    padding: 0.5rem 1.5rem;
-    border: 1px solid var(--gold);
-    color: var(--gold);
+    color: var(--text-muted);
     text-decoration: none;
+    border: 1px solid rgba(201,168,76,0.3);
+    padding: 0.3rem 0.7rem;
     transition: all 0.3s;
   }
-  .nav-donate:hover { background: var(--gold); color: var(--obsidian); }
+  .lang-switch:hover { color: var(--gold); border-color: var(--gold); }
+  .theme-toggle {
+    background: none;
+    border: 1px solid rgba(201,168,76,0.3);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    padding: 0;
+  }
+  .theme-toggle:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+  body.light {
+    --gold: #6B4F0A;
+    --gold-light: #7A5C0E;
+    --gold-dim: #4A3508;
+    --sand: #1A1008;
+    --sand-dark: #2A1E0A;
+    --obsidian: #F5EDD6;
+    --dark: #EDE0C0;
+    --dark-mid: #E4D4A8;
+    --dark-surface: #DFC98E44;
+    --text-muted: #4A3A20;
+  }
+  body.light nav {
+    background: rgba(245,237,214,0.97);
+    border-bottom: 1px solid rgba(139,105,20,0.2);
+  }
+  body.light .hero-bg {
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 40%, rgba(139,105,20,0.08) 0%, transparent 70%),
+      linear-gradient(180deg, #F5EDD6 0%, #EDE0C0 50%, #F5EDD6 100%);
+  }
+  body.light .stat-strip {
+    background: #E4D4A8;
+  }
+  body.light footer {
+    background: #EDE0C0;
+  }
+  body.light .hero-title { color: #1A1008; }
+  body.light .hero-subtitle { color: #4A3A20; }
+  body.light .hero-desc { color: #2A1E0A; }
+  body.light .section-title { color: #1A1008; }
+  body.light .activity-text { color: #4A3A20; }
+  body.light .about-text { color: #2A1E0A; }
+  body.light .value-text { color: #4A3A20; }
+  body.light .grant-desc { color: #4A3A20; }
+  body.light .footer-tagline { color: #4A3A20; }
+  body.light .footer-links a { color: #4A3A20; }
+  body.light .ci-value { color: #2A1E0A; }
+  body.light .contact-form-note { color: #2A1E0A; }
+  body.light .project-desc { color: #4A3A20; }
+  body.light .donate-option-info { color: #4A3A20; }
+  body.light .stat-label { color: #4A3A20; }
   .hero {
     min-height: 100vh;
     display: flex;
@@ -82,11 +158,30 @@
     overflow: hidden;
   }
   .hero-bg {
-    position: absolute; inset: 0;
+    position: absolute;
+    inset: 0;
     background:
       radial-gradient(ellipse 80% 60% at 50% 40%, rgba(201,168,76,0.06) 0%, transparent 70%),
       linear-gradient(180deg, #0E0C08 0%, #1A1610 50%, #0E0C08 100%);
   }
+  .sand-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.6;
+  }
+  .hero-eyebrow,
+  .hero-title,
+  .hero-subtitle,
+  .hero-divider,
+  .hero-desc,
+  .hero-ctas,
+  .hero-border,
+  .hero-ankh,
+  .hieroglyph-strip { position: relative; z-index: 2; }
   .hero-border {
     position: absolute; inset: 80px 40px 40px;
     border: 1px solid rgba(201,168,76,0.15);
@@ -140,19 +235,31 @@
     position: relative;
   }
   .hero-divider {
-    width: 120px;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
     margin: 0 auto 2.5rem;
+    width: 300px;
     position: relative;
+    z-index: 2;
   }
-  .hero-divider::before {
-    content: '𓂀';
-    position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
-    font-size: 1.2rem;
+  .divider-line {
+    flex: 1;
+    height: 1px;
+    background: var(--gold);
+    opacity: 0.5;
+  }
+  .divider-line:last-child {
+    background: var(--gold);
+    opacity: 0.5;
+  }
+  .divider-eye {
+    font-size: 1.4rem;
     color: var(--gold);
-    background: var(--obsidian);
-    padding: 0 8px;
+    line-height: 1;
+    opacity: 0.85;
+    padding: 0 0.3rem;
   }
   .hero-desc {
     max-width: 620px;
@@ -232,9 +339,46 @@
   .about-section { background: var(--dark); }
   .about-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.4fr 1fr;
     gap: 5rem;
     align-items: start;
+  }
+  .about-photo-wrap {
+    position: sticky;
+    top: 100px;
+  }
+  .about-photo-frame {
+    position: relative;
+    border: 1px solid var(--gold);
+    padding: 8px;
+  }
+  .about-photo-frame::before {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    border: 1px solid rgba(201,168,76,0.25);
+    pointer-events: none;
+  }
+  .about-photo {
+    width: 100%;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+    filter: sepia(0.2) brightness(0.9);
+  }
+  .about-photo-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2.5rem 1.2rem 1rem;
+    background: linear-gradient(transparent, rgba(10,8,5,0.85));
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-align: center;
   }
   .about-text { font-size: 1.05rem; color: var(--sand-dark); }
   .about-text p { margin-bottom: 1.5rem; }
@@ -352,10 +496,10 @@
     left: 0;
     color: var(--gold-dim);
   }
-  .documents-section { background: var(--dark-mid); }
+  .documents-section { background: var(--dark-mid); padding-top: 2rem; }
   .documents-grid {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 1px;
     background: rgba(201,168,76,0.1);
     border: 1px solid rgba(201,168,76,0.1);
@@ -364,41 +508,42 @@
   .document-card {
     background: var(--dark);
     padding: 2.5rem;
-    grid-column: span 2;
     transition: background 0.3s;
   }
-  .document-card:nth-child(4) { grid-column: 2 / span 2; }
-  .document-card:nth-child(5) { grid-column: 4 / span 2; }
   .document-card:hover { background: var(--dark-surface); }
-  .document-icon {
-    font-size: 2rem;
-    margin-bottom: 1.2rem;
-    display: block;
-    color: var(--gold);
-    opacity: 0.8;
+  .document-card--pending {
+    opacity: 0.5;
   }
-  .document-title {
+  .document-card-pending {
+    display: inline-block;
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    border: 1px solid rgba(201,168,76,0.2);
+    padding: 0.4rem 1rem;
+    margin-top: 0.5rem;
+  }
+  .document-card-title {
     font-family: 'Cinzel', serif;
     font-size: 1rem;
     color: var(--gold);
     letter-spacing: 0.08em;
     margin-bottom: 0.75rem;
   }
-  .document-text { font-size: 0.95rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 1.2rem; }
-  .btn-download {
-    font-family: 'Cinzel', serif;
-    font-size: 0.7rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    padding: 0.75rem 1.5rem;
-    background: transparent;
-    color: var(--sand);
-    text-decoration: none;
-    border: 1px solid rgba(201,168,76,0.4);
-    transition: all 0.3s;
-    display: inline-block;
+  .document-card-desc {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
   }
-  .btn-download:hover { border-color: var(--gold); color: var(--gold); }
+  .document-card-note {
+    font-size: 0.8rem;
+    color: var(--gold-dim);
+    font-style: italic;
+    margin-top: 0.75rem;
+  }
   .grants-section { background: var(--dark); }
   .grants-grid {
     display: grid;
@@ -518,7 +663,7 @@
     font-style: italic;
   }
   .tax-note strong { color: var(--gold-dim); }
-  .contact-section { background: var(--dark-mid); }
+  .contact-section { background: var(--dark-mid); padding-bottom: 2rem; }
   .contact-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -663,23 +808,58 @@
     transition: color 0.3s;
   }
   .nav-overlay-links a:hover { color: var(--gold); }
-  .nav-overlay-donate {
-    margin-top: 2rem;
-    min-height: 44px;
-    display: inline-flex;
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+  .hamburger span {
+    display: block;
+    width: 22px;
+    height: 1px;
+    background: var(--gold);
+    transition: all 0.3s;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    inset: 70px 0 0 0;
+    background: rgba(14,12,8,0.98);
+    z-index: 99;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    border-top: 1px solid rgba(201,168,76,0.15);
   }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu ul { list-style: none; text-align: center; }
+  .mobile-menu li { margin: 1.5rem 0; }
+  .mobile-menu a {
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--sand);
+    text-decoration: none;
+  }
+  .mobile-menu a:hover { color: var(--gold); }
 
   @media (max-width: 900px) {
     nav { padding: 0 1.5rem; }
     .nav-links { display: none; }
     .about-grid, .grants-grid, .contact-grid { grid-template-columns: 1fr; }
-    .activities-grid,
+    .about-photo-wrap { position: static; }
+    .activities-grid { grid-template-columns: 1fr; }
     .documents-grid { grid-template-columns: 1fr; }
-    .document-card,
-    .document-card:nth-child(4),
-    .document-card:nth-child(5) { grid-column: auto; }
     .footer-grid { grid-template-columns: 1fr 1fr; }
     .donate-options { grid-template-columns: 1fr; }
     .stats-row { flex-wrap: wrap; }
@@ -688,198 +868,163 @@
   }
 
   @media (max-width: 768px) {
-    body { font-size: 16px; }
-    section { padding: 4rem 1.25rem; }
-    nav { padding: 0 1rem; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    nav { padding: 0 1.2rem; }
 
-    /* Navigation */
-    .nav-toggle { display: flex; }
-    nav > .nav-donate { display: none; }
-    .nav-overlay { display: flex; }
-    .nav-toggle-input:checked ~ .nav-overlay {
-      opacity: 1;
-      visibility: visible;
-      pointer-events: auto;
-    }
-    .nav-toggle-input:checked + .nav-toggle .nav-toggle-bar:nth-child(1) {
-      transform: translateY(8px) rotate(45deg);
-    }
-    .nav-toggle-input:checked + .nav-toggle .nav-toggle-bar:nth-child(2) {
-      opacity: 0;
-      transform: scaleX(0);
-    }
-    .nav-toggle-input:checked + .nav-toggle .nav-toggle-bar:nth-child(3) {
-      transform: translateY(-8px) rotate(-45deg);
-    }
-
-    /* Hero */
-    .hero { padding: 6rem 1.25rem 3rem; min-height: auto; }
-    .hero-ankh,
+    .hero { padding: 6rem 1.5rem 3rem; min-height: 100svh; }
+    .hero-title { font-size: 2rem; }
+    .hero-subtitle { font-size: 0.75rem; letter-spacing: 0.2em; }
+    .hero-desc { font-size: 1rem; }
     .hero-border { display: none; }
-    .hero-eyebrow {
-      font-size: 0.8125rem;
-      letter-spacing: 0.3em;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-    }
-    .hero-eyebrow::before,
-    .hero-eyebrow::after { width: 24px; }
-    .hero-title {
-      font-size: clamp(1.45rem, 6.5vw, 1.85rem);
-      line-height: 1.2;
-      letter-spacing: 0.01em;
-      max-width: 100%;
-      overflow-wrap: break-word;
-    }
-    .hero-subtitle {
-      font-size: clamp(0.8125rem, 2.8vw, 0.875rem);
-      letter-spacing: 0.15em;
-      margin-bottom: 1.5rem;
-    }
-    .hero-desc {
-      font-size: 1rem;
-      line-height: 1.75;
-      margin-bottom: 2rem;
-    }
-    .hero-ctas {
-      flex-direction: column;
-      width: 100%;
-      max-width: 100%;
-      gap: 0.75rem;
-    }
-    .hero-ctas .btn-primary,
-    .hero-ctas .btn-secondary {
-      width: 100%;
-      min-height: 44px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.875rem 1.5rem;
-      font-size: 0.8125rem;
-    }
+    .hero-ankh { display: none; }
 
-    /* About */
-    .about-grid { gap: 2.5rem; }
-    .value-item { padding: 1.1rem; }
-    .value-num { font-size: 1.5rem; }
-    .value-title { font-size: 0.8125rem; }
-    .value-text { font-size: 0.9375rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .about-photo-wrap { position: static; }
+    .about-photo { height: auto; }
+    .about-values { grid-template-columns: 1fr 1fr; }
+    .value-item { padding: 1.2rem; }
 
-    /* Stat strip – 2×2 grid */
-    .stat-strip { padding: 2.5rem 1.25rem; }
-    .stats-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      max-width: 100%;
-    }
-    .stat-item {
-      flex: none;
-      padding: 1.25rem 0.75rem;
-      border-right: 1px solid rgba(201,168,76,0.15);
-      border-bottom: 1px solid rgba(201,168,76,0.15);
-    }
-    .stat-item:nth-child(2n) { border-right: none; }
-    .stat-item:nth-child(n+3) { border-bottom: none; }
-    .stat-num { font-size: 2rem; }
-    .stat-label { font-size: 0.8125rem; }
+    .activities-grid { grid-template-columns: 1fr; }
+    .activity-card { padding: 1.5rem; }
 
-    /* Activities */
-    .activity-card,
-    .document-card { padding: 1.5rem; }
-    .activity-tag { font-size: 0.8125rem; padding: 0.35rem 0.75rem; }
-    .btn-download { min-height: 44px; display: inline-flex; align-items: center; font-size: 0.8125rem; }
+    .donate-options { grid-template-columns: 1fr; }
 
-    /* Grants */
-    .grants-grid {
-      grid-template-columns: 1fr;
-      gap: 1.25rem;
-    }
-    .grant-card { padding: 1.75rem; }
-    .grant-badge { font-size: 0.8125rem; }
-    .grant-card.featured { order: -1; }
+    .documents-grid { grid-template-columns: 1fr; }
 
-    /* Projects */
-    .project-item {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      padding: 1.5rem 0;
-    }
-    .project-year {
-      font-size: 0.8125rem;
-      padding-top: 0;
-      margin-bottom: 0.35rem;
-      order: 1;
-    }
-    .project-item > div:not(.project-year) { order: 2; }
-    .project-title { font-size: 1rem; margin-bottom: 0.35rem; }
-    .project-desc { font-size: 0.9375rem; margin-bottom: 0.75rem; }
-    .project-status {
-      order: 3;
-      align-self: flex-start;
-      font-size: 0.8125rem;
-      min-height: 44px;
-      display: inline-flex;
-      align-items: center;
-      padding: 0.5rem 0.875rem;
-      margin-top: 0.25rem;
-    }
-
-    /* Donate */
-    .donate-option { padding: 1.5rem; }
-
-    /* Contact */
-    .contact-grid { gap: 2.5rem; }
+    .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
     .form-row { grid-template-columns: 1fr; }
-    .form-field input,
-    .form-field textarea {
-      min-height: 44px;
-      font-size: 16px;
-    }
-    .form-field textarea { min-height: 120px; }
-    .contact-form-fields .btn-primary {
-      min-height: 44px;
-      width: 100%;
-    }
-    .ci-label { font-size: 0.8125rem; min-width: 80px; }
 
-    /* Footer */
-    .footer-grid {
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-    }
-    .footer-grid > div:nth-child(n+3) { display: none; }
-    .footer-links a {
-      font-size: 0.9375rem;
-      display: inline-block;
-      min-height: 44px;
-      line-height: 44px;
-      padding: 0 0.25rem;
-    }
-    .footer-bottom {
-      flex-direction: column;
-      text-align: center;
-      gap: 0.5rem;
-      font-size: 0.8125rem;
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .footer-bottom { flex-direction: column; text-align: center; gap: 0.5rem; }
+
+    .stats-row { flex-wrap: wrap; }
+    .stat-item {
+      flex: 0 0 50%;
+      border-right: none;
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+      padding: 1.5rem;
     }
 
-    /* General tap targets & min font sizes */
-    .section-label { font-size: 0.8125rem; letter-spacing: 0.4em; }
-    .nav-logo { min-height: 44px; display: flex; flex-direction: column; justify-content: center; }
-    .nav-logo span { font-size: 0.8125rem; }
-    a.btn-primary,
-    a.btn-secondary,
-    button.btn-primary {
+    body { font-size: 16px; }
+    section { padding: 3.5rem 1.2rem; }
+    .section-title { font-size: 1.6rem; }
+    .btn-primary, .btn-secondary {
+      padding: 0.9rem 1.5rem;
       min-height: 44px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
     }
-    .grants-section .btn-primary { width: 100%; }
+    .grant-card { padding: 1.5rem; }
+    .project-item { grid-template-columns: 1fr; gap: 0.4rem; }
+    .project-status { margin-top: 0.5rem; display: inline-block; }
+    .project-year { font-size: 0.75rem; }
+
+    .sand-canvas { display: none; }
+
+    .intro-logo { font-size: 2rem; }
+    .intro-sub { font-size: 0.55rem; letter-spacing: 0.3em; }
+    .intro-hieroglyphs { font-size: 1rem; letter-spacing: 0.5em; }
+  }
+
+  /* INTRO ANIMATION */
+  .intro-overlay {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 60% at 50% 50%, #1A1610 0%, #0E0C08 100%);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+  }
+
+  .intro-hieroglyphs {
+    font-size: 1.4rem;
+    letter-spacing: 0.8em;
+    color: rgba(201,168,76,0.25);
+    opacity: 0;
+    transform: scale(0.9);
+    animation: introFadeUp 1.2s ease 0.2s forwards;
+  }
+
+  .intro-logo {
+    font-family: 'Cinzel', serif;
+    font-size: 3rem;
+    letter-spacing: 0.5em;
+    color: var(--gold);
+    opacity: 0;
+    transform: translateY(16px);
+    animation: introFadeUp 1.2s ease 0.6s forwards;
+  }
+
+  .intro-line {
+    width: 0px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    animation: introLine 1.2s ease 1.2s forwards;
+  }
+
+  .intro-sub {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.45em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    opacity: 0;
+    transform: translateY(10px);
+    animation: introFadeUp 1s ease 1.6s forwards;
+  }
+
+  .intro-est {
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+    color: rgba(201,168,76,0.4);
+    opacity: 0;
+    animation: introFadeUp 1s ease 2s forwards;
+  }
+
+  @keyframes introFadeUp {
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes introLine {
+    to { width: 160px; }
+  }
+
+  body.launching {
+    animation: none;
+  }
+
+  .page-content {
+    animation: none;
+  }
+
+  @keyframes pageRise {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 </style>
 </head>
 <body>
+
+<div class="intro-overlay" id="introOverlay">
+  <div class="intro-hieroglyphs">𓂀 𓇋 𓏏 𓆣 𓊽 𓂋 𓇗</div>
+  <div class="intro-logo">NFSSE</div>
+  <div class="intro-line"></div>
+  <div class="intro-sub">Nadační fond pro studium starověkého Egypta</div>
+  <div class="intro-est">Est. 2023</div>
+</div>
 
 <nav>
   <a href="#uvod" class="nav-logo">
@@ -893,7 +1038,15 @@
     <li><a href="#jak-prispet">Jak přispět</a></li>
     <li><a href="#kontakt">Kontakt</a></li>
   </ul>
-  <a href="#jak-prispet" class="nav-donate">Podpořte nás</a>
+  <div class="nav-right">
+    <a href="en/index.html" class="lang-switch">EN</a>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+      <span class="theme-icon">☀</span>
+    </button>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
   <input type="checkbox" id="nav-toggle" class="nav-toggle-input" aria-hidden="true">
   <label for="nav-toggle" class="nav-toggle" aria-label="Otevřít menu">
     <span class="nav-toggle-bar"></span>
@@ -908,48 +1061,68 @@
       <li><a href="#jak-prispet">Jak přispět</a></li>
       <li><a href="#kontakt">Kontakt</a></li>
     </ul>
-    <a href="#jak-prispet" class="nav-donate nav-overlay-donate">Podpořte nás</a>
   </div>
 </nav>
 
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="#o-fondu" onclick="toggleMenu()">O fondu</a></li>
+    <li><a href="#aktivity" onclick="toggleMenu()">Aktivity</a></li>
+    <li><a href="#dokumenty" onclick="toggleMenu()">Dokumenty</a></li>
+    <li><a href="#jak-prispet" onclick="toggleMenu()">Jak přispět</a></li>
+    <li><a href="#kontakt" onclick="toggleMenu()">Kontakt</a></li>
+  </ul>
+</div>
+
 <section class="hero" id="uvod">
   <div class="hero-bg"></div>
+  <canvas id="sandCanvas" class="sand-canvas"></canvas>
   <div class="hieroglyph-strip"></div>
   <div class="hero-border"></div>
   <div class="hero-ankh">𓂀</div>
-  <div class="hero-eyebrow">Est. 2005 · Praha</div>
+  <div class="hero-eyebrow">Est. 2023</div>
   <h1 class="hero-title">
     Nadační fond pro studium<br><span class="gold">starověkého Egypta</span>
   </h1>
   <p class="hero-subtitle">Veřejně prospěšný a dobročinný nadační fond</p>
-  <div class="hero-divider"></div>
+  <div class="hero-divider">
+    <span class="divider-line"></span>
+    <span class="divider-eye">𓂀</span>
+    <span class="divider-line"></span>
+  </div>
   <p class="hero-desc">
     Propojujeme vášeň pro egyptologii s akademickou excelencí.
     Podporujeme studenty, vědce a projekty, které rozkrývají tajemství
     nejstarší civilizace světa.
   </p>
-  <div class="hero-ctas">
-    <a href="#o-fondu" class="btn-primary">Poznat fond</a>
-    <a href="#aktivity" class="btn-secondary">Stipendijní program</a>
-  </div>
 </section>
 
 <section class="about-section" id="o-fondu">
   <div class="section-inner">
-    <p class="section-label">O fondu</p>
-    <h2 class="section-title">Účel, pro který se nadační fond zřídil</h2>
-    <div class="gold-rule"></div>
-    <div class="about-text">
-      <ul class="about-mission">
-        <li>podporovat především archeologické výzkumy na lokalitě Abúsír a s tím související aktivity</li>
-        <li>podporovat studium starověkého Egypta obecně, dokumentaci lokalit na území Egypta a prohlubovat poznání v těchto směrech</li>
-        <li>rozšiřovat odborný knižní fond, pořádat semináře, konference, přednášky a výstavy</li>
-        <li>podporovat multidisciplinární bádání a spolupráci se zástupci společenskovědních, technických i přírodovědných oborů</li>
-        <li>podporovat odbornou i popularizační publikační činnost v oboru egyptologie</li>
-        <li>podporovat srovnávací studium civilizací</li>
-        <li>udělovat stipendia pro studium egyptologie</li>
-      </ul>
-      <p>Účelem nadačního fondu je také shromažďování finančních prostředků pro podporu činnosti nadačního fondu, pořádání kulturních a společenských akcí, stejně jako ochrana a rozvoj etických hodnot v oboru egyptologie.</p>
+    <div class="about-grid">
+      <div>
+        <p class="section-label">O fondu</p>
+        <h2 class="section-title">Účel, pro který se nadační fond zřídil</h2>
+        <div class="gold-rule"></div>
+        <div class="about-text">
+          <ul class="about-mission">
+            <li>podporovat především archeologické výzkumy na lokalitě Abúsír a s tím související aktivity</li>
+            <li>podporovat studium starověkého Egypta obecně, dokumentaci lokalit na území Egypta a prohlubovat poznání v těchto směrech</li>
+            <li>rozšiřovat odborný knižní fond, pořádat semináře, konference, přednášky a výstavy</li>
+            <li>podporovat multidisciplinární bádání a spolupráci se zástupci společenskovědních, technických i přírodovědných oborů</li>
+            <li>podporovat odbornou i popularizační publikační činnost v oboru egyptologie</li>
+            <li>podporovat srovnávací studium civilizací</li>
+            <li>udělovat stipendia pro studium egyptologie</li>
+          </ul>
+          <p>Účelem nadačního fondu je také shromažďování finančních prostředků pro podporu činnosti nadačního fondu, pořádání kulturních a společenských akcí, stejně jako ochrana a rozvoj etických hodnot v oboru egyptologie.</p>
+        </div>
+      </div>
+      <div class="about-photo-wrap">
+        <div class="about-photo-frame">
+          <img src="photos/said.jpg" alt="Lokalita Abúsír, Egypt" class="about-photo">
+          <div class="about-photo-caption">Abúsír, Egypt</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1089,17 +1262,17 @@
         <p class="contact-form-note">Máte zájem o stipendium, spolupráci nebo chcete přispět? Napište nám — odpovídáme do 3 pracovních dnů.</p>
         <div class="contact-form-fields">
           <div class="form-row">
-            <div class="form-field"><input type="text" placeholder="Jméno a příjmení"></div>
-            <div class="form-field"><input type="email" placeholder="E-mailová adresa"></div>
+            <div class="form-field"><input type="text" id="contact-name" placeholder="Jméno a příjmení"></div>
+            <div class="form-field"><input type="email" id="contact-email" placeholder="E-mailová adresa"></div>
           </div>
           <div class="form-field">
-            <input type="text" placeholder="Předmět zprávy (stipendium / dar / jiné)">
+            <input type="text" id="contact-subject" placeholder="Předmět zprávy (stipendium / dar / jiné)">
           </div>
           <div class="form-field">
-            <textarea placeholder="Vaše zpráva..."></textarea>
+            <textarea id="contact-message" placeholder="Vaše zpráva..."></textarea>
           </div>
           <div>
-            <button class="btn-primary" style="width: 100%;" onclick="alert('Formulář je pouze demonstrativní.')">Odeslat zprávu</button>
+            <button class="btn-primary" style="width: 100%;" onclick="sendMail()">Odeslat zprávu</button>
           </div>
         </div>
       </div>
@@ -1113,34 +1286,36 @@
     <h2 class="section-title">Dokumenty</h2>
     <div class="documents-grid">
       <div class="document-card">
-        <span class="document-icon">↓</span>
-        <div class="document-title">Obchodní rejstřík</div>
-        <p class="document-text">Výpis z nadačního rejstříku</p>
-        <a href="files/OR.pdf" target="_blank" class="btn-download">Stáhnout PDF</a>
+        <div class="document-card-title">Obchodní rejstřík</div>
+        <div class="document-card-desc">Výpis z nadačního rejstříku</div>
+        <a href="files/OR.pdf" target="_blank" class="btn-secondary">Zobrazit PDF</a>
       </div>
       <div class="document-card">
-        <span class="document-icon">↓</span>
-        <div class="document-title">Zakládací listina</div>
-        <p class="document-text">Zakládací listina nadačního fondu</p>
-        <a href="files/ZALOZENI_NF.pdf" target="_blank" class="btn-download">Stáhnout PDF</a>
+        <div class="document-card-title">Zakládací listina</div>
+        <div class="document-card-desc">Zakládací listina nadačního fondu</div>
+        <a href="files/ZALOZENI_NF.pdf" target="_blank" class="btn-secondary">Zobrazit PDF</a>
       </div>
       <div class="document-card">
-        <span class="document-icon">↓</span>
-        <div class="document-title">Statut nadačního fondu</div>
-        <p class="document-text">Platný statut nadačního fondu NFSSE</p>
-        <a href="files/statut_nfsse.pdf" target="_blank" class="btn-download">Stáhnout PDF</a>
+        <div class="document-card-title">Statut nadačního fondu</div>
+        <div class="document-card-desc">Platný statut nadačního fondu NFSSE</div>
+        <a href="files/statut_nfsse.pdf" target="_blank" class="btn-secondary">Zobrazit PDF</a>
       </div>
       <div class="document-card">
-        <span class="document-icon">↓</span>
-        <div class="document-title">Výroční zpráva 2023</div>
-        <p class="document-text">Výroční zpráva za rok 2023 — heslo na vyžádání na office@nfsse.cz</p>
-        <a href="files/vz/vyrocni_zprava_2023.pdf" target="_blank" class="btn-download">Stáhnout PDF</a>
+        <div class="document-card-title">Výroční zpráva 2023</div>
+        <div class="document-card-desc">Výroční zpráva za rok 2023</div>
+        <a href="files/vz/vyrocni_zprava_2023.pdf" target="_blank" class="btn-secondary">Zobrazit PDF</a>
+        <div class="document-card-note">Chráněno heslem — heslo na vyžádání: office@nfsse.cz</div>
       </div>
       <div class="document-card">
-        <span class="document-icon">↓</span>
-        <div class="document-title">Výroční zpráva 2024</div>
-        <p class="document-text">Výroční zpráva za rok 2024 — heslo na vyžádání na office@nfsse.cz</p>
-        <a href="files/vz/vyrocni_zprava_2024.pdf" target="_blank" class="btn-download">Stáhnout PDF</a>
+        <div class="document-card-title">Výroční zpráva 2024</div>
+        <div class="document-card-desc">Výroční zpráva za rok 2024</div>
+        <a href="files/vz/vyrocni_zprava_2024.pdf" target="_blank" class="btn-secondary">Zobrazit PDF</a>
+        <div class="document-card-note">Chráněno heslem — heslo na vyžádání: office@nfsse.cz</div>
+      </div>
+      <div class="document-card document-card--pending">
+        <div class="document-card-title">Výroční zpráva 2025</div>
+        <div class="document-card-desc">Výroční zpráva za rok 2025</div>
+        <span class="document-card-pending">Připravujeme</span>
       </div>
     </div>
   </div>
@@ -1151,7 +1326,7 @@
     <div class="footer-grid">
       <div>
         <div class="footer-brand">NFSSE <span class="footer-brand-sub">· Nadační fond</span></div>
-        <p class="footer-tagline">Propojujeme českou vědu<br>s tisíciletou moudrostí Egypta.<br>Od roku 2005.</p>
+        <p class="footer-tagline">Propojujeme českou vědu<br>s tisíciletou moudrostí Egypta.<br>Od roku 2023.</p>
         <div class="footer-hieroglyph" style="margin-top: 1.5rem;">𓂀 𓇋 𓏏 𓆣 𓊽</div>
       </div>
       <div>
@@ -1170,6 +1345,16 @@
           <li><a href="https://cegu.ff.cuni.cz" target="_blank" rel="noopener">Český egyptologický ústav UK</a></li>
         </ul>
       </div>
+      <div>
+        <div class="footer-col-title">Kontakt</div>
+        <ul class="footer-links">
+          <li><a href="mailto:office@nfsse.cz">office@nfsse.cz</a></li>
+          <li><a href="tel:+420602301257">+420 602 301 257</a></li>
+          <li style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem;">
+            Vítězslava Hálka 1532/2<br>434 01 Most
+          </li>
+        </ul>
+      </div>
     </div>
     <div class="footer-bottom">
       <span>© Nadační fond pro studium starověkého Egypta, 2023–2026</span>
@@ -1178,11 +1363,164 @@
 </footer>
 
 <script>
+function toggleMenu() {
+  const menu = document.getElementById('mobileMenu');
+  const burger = document.querySelector('.hamburger');
+  menu.classList.toggle('open');
+  burger.classList.toggle('open');
+}
+
   document.querySelectorAll('.nav-overlay a').forEach(function (link) {
     link.addEventListener('click', function () {
       document.getElementById('nav-toggle').checked = false;
     });
   });
+
+  // Intro overlay
+  window.addEventListener('load', function() {
+    const overlay = document.getElementById('introOverlay');
+    if (!overlay) return;
+
+    // Hide page content behind overlay, not the overlay itself
+    const pageContent = document.querySelectorAll(
+      'nav, .hero, .about-section, .stat-strip, .activities-section, ' +
+      '.grants-section, .projects-section, .donate-section, ' +
+      '.contact-section, .documents-section, footer'
+    );
+
+    pageContent.forEach(function(el) {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(18px)';
+    });
+
+    setTimeout(function() {
+      overlay.style.display = 'none';
+
+      pageContent.forEach(function(el) {
+        el.style.transition = 'opacity 1.2s ease, transform 1.2s ease';
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
+      });
+    }, 3950);
+  });
+</script>
+
+<script>
+function sendMail() {
+  const name    = document.getElementById('contact-name').value.trim();
+  const email   = document.getElementById('contact-email').value.trim();
+  const subject = document.getElementById('contact-subject').value.trim();
+  const message = document.getElementById('contact-message').value.trim();
+
+  if (!name || !email || !message) {
+    alert('Vyplňte prosím jméno, e-mail a zprávu.');
+    return;
+  }
+
+  const body = `Jméno: ${name}%0AE-mail: ${email}%0A%0A${message}`;
+  const mailtoLink = `mailto:office@nfsse.cz?subject=${encodeURIComponent(subject || 'Zpráva z webu NFSSE')}&body=${body}`;
+  window.location.href = mailtoLink;
+}
+</script>
+
+<script>
+function toggleTheme() {
+  const body = document.body;
+  const icon = document.querySelector('.theme-icon');
+  if (body.classList.contains('light')) {
+    body.classList.remove('light');
+    icon.textContent = '☀';
+    localStorage.setItem('theme', 'dark');
+  } else {
+    body.classList.add('light');
+    icon.textContent = '☾';
+    localStorage.setItem('theme', 'light');
+  }
+}
+
+(function() {
+  const saved = localStorage.getItem('theme');
+  if (saved === 'light') {
+    document.body.classList.add('light');
+    const icon = document.querySelector('.theme-icon');
+    if (icon) icon.textContent = '☾';
+  }
+})();
+
+// Golden sand particles
+(function() {
+  const canvas = document.getElementById('sandCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+
+  let particles = [];
+  const COUNT = 55;
+
+  function resize() {
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+  }
+
+  function randomBetween(a, b) {
+    return a + Math.random() * (b - a);
+  }
+
+  function createParticle() {
+    return {
+      x: randomBetween(0, canvas.width),
+      y: randomBetween(-20, canvas.height),
+      size: randomBetween(0.8, 2.2),
+      speedY: randomBetween(0.15, 0.55),
+      speedX: randomBetween(-0.15, 0.15),
+      opacity: randomBetween(0.2, 0.7),
+      wobble: randomBetween(0, Math.PI * 2),
+      wobbleSpeed: randomBetween(0.005, 0.02)
+    };
+  }
+
+  function init() {
+    resize();
+    particles = [];
+    for (let i = 0; i < COUNT; i++) {
+      const p = createParticle();
+      p.y = randomBetween(0, canvas.height);
+      particles.push(p);
+    }
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    particles.forEach(function(p) {
+      p.wobble += p.wobbleSpeed;
+      p.x += p.speedX + Math.sin(p.wobble) * 0.3;
+      p.y += p.speedY;
+
+      if (p.y > canvas.height + 10) {
+        p.y = -10;
+        p.x = randomBetween(0, canvas.width);
+        p.opacity = randomBetween(0.2, 0.7);
+      }
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(201, 168, 76, ' + p.opacity + ')';
+      ctx.fill();
+    });
+
+    requestAnimationFrame(draw);
+  }
+
+  window.addEventListener('resize', function() {
+    resize();
+  });
+
+  // Start after intro overlay is gone
+  setTimeout(function() {
+    init();
+    draw();
+  }, 4500);
+})();
 </script>
 
 </body>
