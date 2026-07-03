@@ -739,6 +739,9 @@
     letter-spacing: 0.1em;
   }
   .footer-hieroglyph { font-size: 1.5rem; opacity: 0.15; letter-spacing: 0.5rem; }
+  .footer-credit { display: inline-flex; align-items: center; gap: 0.6rem; color: rgba(154,136,96,0.5); text-decoration: none; font-family: 'Cinzel', serif; letter-spacing: 0.08em; font-size: 0.75rem; transition: color 0.3s, opacity 0.3s; }
+  .footer-credit:hover { color: var(--gold); opacity: 1; }
+  .footer-credit-mark { display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border: 1px solid currentColor; border-radius: 50%; font-size: 0.6rem; letter-spacing: 0.02em; opacity: 0.85; }
 
   /* Mobile nav – hidden on desktop */
   .nav-toggle-input { position: absolute; opacity: 0; pointer-events: none; width: 0; height: 0; }
@@ -1361,6 +1364,10 @@
     </div>
     <div class="footer-bottom">
       <span>© Nadační fond pro studium starověkého Egypta, 2023–2026</span>
+      <a href="https://matejbruna.cz" target="_blank" rel="noopener" class="footer-credit" aria-label="Web a design: Matěj Brůna">
+        <span class="footer-credit-mark">MB</span>
+        <span>Web &amp; design Matěj Brůna</span>
+      </a>
     </div>
   </div>
 </footer>
